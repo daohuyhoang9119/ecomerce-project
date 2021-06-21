@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslate } from "../../core/Translate";
 
-function CheckOut(props) {
+function CheckOut() {
+  let { t } = useTranslate();
   return (
     <>
       <section className="pt-7 pb-12">
@@ -8,12 +10,12 @@ function CheckOut(props) {
           <div className="row">
             <div className="col-12 text-center">
               {/* Heading */}
-              <h3 className="mb-4">Checkout</h3>
+              <h3 className="mb-4">{t(`Checkout`)}</h3>
               {/* Subheading */}
               <p className="mb-10">
-                Already have an account?{" "}
+                {t(`Already have an account?`)}{" "}
                 <a className="font-weight-bold text-reset" href="#!">
-                  Click here to login
+                  {t(`Click here to login`)}
                 </a>
               </p>
             </div>
@@ -23,14 +25,14 @@ function CheckOut(props) {
               {/* Form */}
               <form>
                 {/* Heading */}
-                <h6 className="mb-7">Billing Details</h6>
+                <h6 className="mb-7">{t(`Billing Details`)}</h6>
                 {/* Billing details */}
                 <div className="row mb-9">
                   <div className="col-12 col-md-6">
                     {/* First Name */}
                     <div className="form-group">
                       <label htmlFor="checkoutBillingFirstName">
-                        First Name *
+                        {t(`First Name *`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -45,7 +47,7 @@ function CheckOut(props) {
                     {/* Last Name */}
                     <div className="form-group">
                       <label htmlFor="checkoutBillingLastName">
-                        Last Name *
+                        {t(`Last Name *`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -59,7 +61,9 @@ function CheckOut(props) {
                   <div className="col-12">
                     {/* Email */}
                     <div className="form-group">
-                      <label htmlFor="checkoutBillingEmail">Email *</label>
+                      <label htmlFor="checkoutBillingEmail">
+                        {t(`Email *`)}
+                      </label>
                       <input
                         className="form-control form-control-sm"
                         id="checkoutBillingEmail"
@@ -73,7 +77,7 @@ function CheckOut(props) {
                     {/* Company Name */}
                     <div className="form-group">
                       <label htmlFor="checkoutBillingCompany">
-                        Company name *
+                        {t(`Company name *`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -86,7 +90,9 @@ function CheckOut(props) {
                   <div className="col-12">
                     {/* Country */}
                     <div className="form-group">
-                      <label htmlFor="checkoutBillingCountry">Country *</label>
+                      <label htmlFor="checkoutBillingCountry">
+                        {t(`Country *`)}
+                      </label>
                       <input
                         className="form-control form-control-sm"
                         id="checkoutBillingCountry"
@@ -100,7 +106,7 @@ function CheckOut(props) {
                     {/* Address Line 1 */}
                     <div className="form-group">
                       <label htmlFor="checkoutBillingAddress">
-                        Address Line 1 *
+                        {t(`Address Line 1 *`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -115,7 +121,7 @@ function CheckOut(props) {
                     {/* Address Line 2 */}
                     <div className="form-group">
                       <label htmlFor="checkoutBillingAddressTwo">
-                        Address Line 2
+                        {t(`Address Line 2`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -128,7 +134,9 @@ function CheckOut(props) {
                   <div className="col-12 col-md-6">
                     {/* Town / City */}
                     <div className="form-group">
-                      <label htmlFor="checkoutBillingTown">Town / City *</label>
+                      <label htmlFor="checkoutBillingTown">
+                        {t(`Town / City *`)}
+                      </label>
                       <input
                         className="form-control form-control-sm"
                         id="checkoutBillingTown"
@@ -142,7 +150,7 @@ function CheckOut(props) {
                     {/* ZIP / Postcode */}
                     <div className="form-group">
                       <label htmlFor="checkoutBillingZIP">
-                        ZIP / Postcode *
+                        {t(`ZIP / Postcode *`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -157,7 +165,7 @@ function CheckOut(props) {
                     {/* Mobile Phone */}
                     <div className="form-group mb-0">
                       <label htmlFor="checkoutBillingPhone">
-                        Mobile Phone *
+                        {t(`Mobile Phone *`)}
                       </label>
                       <input
                         className="form-control form-control-sm"
@@ -170,7 +178,7 @@ function CheckOut(props) {
                   </div>
                 </div>
                 {/* Heading */}
-                <h6 className="mb-7">Shipping Details</h6>
+                <h6 className="mb-7">{t(`Shipping Details`)}</h6>
                 {/* Shipping details */}
                 <div className="table-responsive mb-6">
                   <table className="table table-bordered table-sm table-hover mb-0">
@@ -188,11 +196,11 @@ function CheckOut(props) {
                               className="custom-control-label text-body text-nowrap"
                               htmlFor="checkoutShippingStandard"
                             >
-                              Standard Shipping
+                              {t(`Standard Shipping`)}
                             </label>
                           </div>
                         </td>
-                        <td>Delivery in 5 - 7 working days</td>
+                        <td>{t(`Delivery in 5 - 7 working days`)}</td>
                         <td>$8.00</td>
                       </tr>
                       <tr>
@@ -208,11 +216,11 @@ function CheckOut(props) {
                               className="custom-control-label text-body text-nowrap"
                               htmlFor="checkoutShippingExpress"
                             >
-                              Express Shipping
+                              {t(`Express Shipping`)}
                             </label>
                           </div>
                         </td>
-                        <td>Delivery in 3 - 5 working days</td>
+                        <td>{t(`Delivery in 3 - 5 working days`)}</td>
                         <td>$12.00</td>
                       </tr>
                       <tr>
@@ -228,11 +236,11 @@ function CheckOut(props) {
                               className="custom-control-label text-body text-nowrap"
                               htmlFor="checkoutShippingShort"
                             >
-                              1 - 2 Shipping
+                              {t(`1 - 2 Shipping`)}
                             </label>
                           </div>
                         </td>
-                        <td>Delivery in 1 - 2 working days</td>
+                        <td>{t(`Delivery in 1 - 2 working days`)}</td>
                         <td>$18.00</td>
                       </tr>
                       <tr>
@@ -248,13 +256,13 @@ function CheckOut(props) {
                               className="custom-control-label text-body text-nowrap"
                               htmlFor="checkoutShippingFree"
                             >
-                              Free Shipping
+                              {t(`Free Shipping`)}
                             </label>
                           </div>
                         </td>
                         <td>
-                          Living won't the He one every subdue meat replenish
-                          face was you morning firmament darkness.
+                          {t(`Living won't the He one every subdue meat replenish
+                          face was you morning firmament darkness.`)}
                         </td>
                         <td>$0.00</td>
                       </tr>
@@ -276,7 +284,7 @@ function CheckOut(props) {
                       data-target="#checkoutShippingAddressCollapse"
                       htmlFor="checkoutShippingAddress"
                     >
-                      Ship to a different address?
+                      {t(`Ship to a different address?`)}
                     </label>
                   </div>
                   {/* Collapse */}
@@ -289,7 +297,7 @@ function CheckOut(props) {
                         {/* Country */}
                         <div className="form-group">
                           <label htmlFor="checkoutShippingAddressCountry">
-                            Country *
+                            {t(`Country *`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -303,7 +311,7 @@ function CheckOut(props) {
                         {/* Address Line 1 */}
                         <div className="form-group">
                           <label htmlFor="checkoutShippingAddressLineOne">
-                            Address Line 1 *
+                            {t(`Address Line 1 *`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -317,7 +325,7 @@ function CheckOut(props) {
                         {/* Address Line 2 */}
                         <div className="form-group">
                           <label htmlFor="checkoutShippingAddressLineTwo">
-                            Address Line 2
+                            {t(`Address Line 2`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -331,7 +339,7 @@ function CheckOut(props) {
                         {/* Town / City */}
                         <div className="form-group">
                           <label htmlFor="checkoutShippingAddressTown">
-                            Town / City *
+                            {t(`Town / City *`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -345,7 +353,7 @@ function CheckOut(props) {
                         {/* Town / City */}
                         <div className="form-group">
                           <label htmlFor="checkoutShippingAddressZIP">
-                            ZIP / Postcode *
+                            {t(`ZIP / Postcode *`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -361,14 +369,14 @@ function CheckOut(props) {
                           className="btn btn-sm btn-outline-dark"
                           type="submit"
                         >
-                          Save Address
+                          {t(`Save Address`)}
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
                 {/* Heading */}
-                <h6 className="mb-7">Payment</h6>
+                <h6 className="mb-7">{t(`Payment`)}</h6>
                 {/* List group */}
                 <div className="list-group list-group-sm mb-7">
                   <div className="list-group-item">
@@ -389,7 +397,7 @@ function CheckOut(props) {
                         className="custom-control-label font-size-sm text-body text-nowrap"
                         htmlFor="checkoutPaymentCard"
                       >
-                        Credit Card{" "}
+                        {t(`Credit Card`)}{" "}
                         <img
                           className="ml-2"
                           src="/img/brands/color/cards.svg"
@@ -410,7 +418,7 @@ function CheckOut(props) {
                             className="sr-only"
                             htmlFor="checkoutPaymentCardNumber"
                           >
-                            Card Number
+                            {t(`Card Number`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -427,7 +435,7 @@ function CheckOut(props) {
                             className="sr-only"
                             htmlFor="checkoutPaymentCardName"
                           >
-                            Name on Card
+                            {t(`Name on Card`)}
                           </label>
                           <input
                             className="form-control form-control-sm"
@@ -444,15 +452,15 @@ function CheckOut(props) {
                             className="sr-only"
                             htmlFor="checkoutPaymentMonth"
                           >
-                            Month
+                            {t(`Month`)}
                           </label>
                           <select
                             className="custom-select custom-select-sm"
                             id="checkoutPaymentMonth"
                           >
-                            <option>January</option>
-                            <option>February</option>
-                            <option>March</option>
+                            <option>{t(`January`)}</option>
+                            <option>{t(`February`)}</option>
+                            <option>{t(`March`)}</option>
                           </select>
                         </div>
                       </div>
@@ -462,7 +470,7 @@ function CheckOut(props) {
                             className="sr-only"
                             htmlFor="checkoutPaymentCardYear"
                           >
-                            Year
+                            {t(`Year`)}
                           </label>
                           <select
                             className="custom-select custom-select-sm"
@@ -532,7 +540,7 @@ function CheckOut(props) {
             </div>
             <div className="col-12 col-md-5 col-lg-4 offset-lg-1">
               {/* Heading */}
-              <h6 className="mb-7">Order Items (3)</h6>
+              <h6 className="mb-7">{t(`Order Items (3)`)}</h6>
               {/* Divider */}
               <hr className="my-7" />
               {/* List group */}
@@ -553,7 +561,7 @@ function CheckOut(props) {
                       {/* Title */}
                       <p className="mb-4 font-size-sm font-weight-bold">
                         <a className="text-body" href="product.html">
-                          Cotton floral print Dress
+                          {t(`Cotton floral print Dress`)}
                         </a>{" "}
                         <br />
                         <span className="text-muted">$40.00</span>
@@ -582,14 +590,14 @@ function CheckOut(props) {
                       {/* Title */}
                       <p className="mb-4 font-size-sm font-weight-bold">
                         <a className="text-body" href="product.html">
-                          Suede cross body Bag
+                          {t(`Suede cross body Bag`)}
                         </a>{" "}
                         <br />
                         <span className="text-muted">$49.00</span>
                       </p>
                       {/* Text */}
                       <div className="font-size-sm text-muted">
-                        Color: Brown
+                        {t(`Color: Brown`)}
                       </div>
                     </div>
                   </div>
@@ -600,31 +608,34 @@ function CheckOut(props) {
                 <div className="card-body">
                   <ul className="list-group list-group-sm list-group-flush-y list-group-flush-x">
                     <li className="list-group-item d-flex">
-                      <span>Subtotal</span>{" "}
+                      <span>{t(`Subtotal`)}</span>{" "}
                       <span className="ml-auto font-size-sm">$89.00</span>
                     </li>
                     <li className="list-group-item d-flex">
-                      <span>Tax</span>{" "}
+                      <span>{t(`Tax`)}</span>{" "}
                       <span className="ml-auto font-size-sm">$00.00</span>
                     </li>
                     <li className="list-group-item d-flex">
-                      <span>Shipping</span>{" "}
+                      <span>{t(`Shipping`)}</span>{" "}
                       <span className="ml-auto font-size-sm">$8.00</span>
                     </li>
                     <li className="list-group-item d-flex font-size-lg font-weight-bold">
-                      <span>Total</span> <span className="ml-auto">$97.00</span>
+                      <span>{t(`Total`)}</span>{" "}
+                      <span className="ml-auto">$97.00</span>
                     </li>
                   </ul>
                 </div>
               </div>
               {/* Disclaimer */}
               <p className="mb-7 font-size-xs text-gray-500">
-                Your personal data will be used to process your order, support
+                {t(`Your personal data will be used to process your order, support
                 your experience throughout this website, and for other purposes
-                described in our privacy policy.
+                described in our privacy policy.`)}
               </p>
               {/* Button */}
-              <button className="btn btn-block btn-dark">Place Order</button>
+              <button className="btn btn-block btn-dark">
+                {t(`Place Order`)}
+              </button>
             </div>
           </div>
         </div>
@@ -641,10 +652,10 @@ function CheckOut(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="heading-xxs mb-1">Free shipping</h6>
+                  <h6 className="heading-xxs mb-1">{t(`Free shipping`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    From all orders over $100
+                    {t(`From all orders over $100`)}
                   </p>
                 </div>
               </div>
@@ -657,10 +668,10 @@ function CheckOut(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="mb-1 heading-xxs">Free returns</h6>
+                  <h6 className="mb-1 heading-xxs">{t(`Free returns`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    Return money within 30 days
+                    {t(`Return money within 30 days`)}
                   </p>
                 </div>
               </div>
@@ -673,10 +684,10 @@ function CheckOut(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="mb-1 heading-xxs">Secure shopping</h6>
+                  <h6 className="mb-1 heading-xxs">{t(`Secure shopping`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    You're in safe hands
+                    {t(`You're in safe hands`)}
                   </p>
                 </div>
               </div>
@@ -689,10 +700,12 @@ function CheckOut(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="mb-1 heading-xxs">Over 10,000 Styles</h6>
+                  <h6 className="mb-1 heading-xxs">
+                    {t(`Over 10,000 Styles`)}
+                  </h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    We have everything you need
+                    {t(`We have everything you need`)}
                   </p>
                 </div>
               </div>

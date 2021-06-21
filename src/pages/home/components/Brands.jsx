@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import useTranslate from "../../../core/useTranslate";
+import { useTranslate } from "../../../core/Translate";
 
 function Brands(props) {
   let { t } = useTranslate();

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import useTranslate from "../../../core/useTranslate";
+import { useTranslate } from "../../../core/Translate";
 
 function Reviews() {
   let { t } = useTranslate();

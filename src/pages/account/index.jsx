@@ -1,23 +1,33 @@
 import React from "react";
 import { Route, Switch, useRouteMatch, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useTranslate } from "../../core/Translate";
 
 import AccountAddress from "./components/AccountAddress";
 import AccountInfo from "./components/AccountInfo";
 import AccountOrders from "./components/AccountOrders";
 import AccountPayment from "./components/AccountPayment";
 import AccountWishlist from "./components/AccountWishlist";
+import { logout } from "../../redux/reducer/authReducer";
 
 function Account() {
-  let { path } = useRouteMatch();
+  // let { path } = useRouteMatch();
+  let dispatch = useDispatch();
+  let match = useRouteMatch();
+  let { t } = useTranslate();
 
-  console.log(path);
+  function _logout(e) {
+    e.preventDefault();
+    dispatch(logout());
+  }
+
   return (
     <section className="pt-7 pb-12">
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
             {/* Heading */}
-            <h3 className="mb-10">My Account</h3>
+            <h3 className="mb-10">{t("My Account")}</h3>
           </div>
         </div>
         <div className="row">
@@ -27,50 +37,67 @@ function Account() {
               <div className="list-group list-group-sm list-group-strong list-group-flush-x">
                 <NavLink
                   className="list-group-item list-group-item-action dropright-toggle active"
-                  to={`${path}`}
+                  // to={`${path}`}
+                  to={`${match.path}/order`}
+                  // exact
+                >
+                  {t("Orders")}
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action dropright-toggle "
+                  // to={`${path}/wisht-list`}
+                  to={`${match.path}/wishlist`}
+                >
+                  {t("Wishlist")}
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action dropright-toggle "
+                  // to={`${path}/info`}
                   exact
+                  to={`${match.path}/info`}
                 >
-                  Orders
+                  {t("Personal Info")}
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action dropright-toggle "
-                  to={`${path}/wisht-list`}
+                  // to={`${path}/address`}
+                  to={`${match.path}/address`}
                 >
-                  Wishlist
+                  {t("Addresses")}
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action dropright-toggle "
-                  to={`${path}/info`}
+                  // to={`${path}/payment`}
+                  to={`${match.path}/payment`}
                 >
-                  Personal Info
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action dropright-toggle "
-                  to={`${path}/address`}
-                >
-                  Addresses
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action dropright-toggle "
-                  to={`${path}/payment`}
-                >
-                  Payment Methods
+                  {t("Payment Methods")}
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action dropright-toggle"
-                  to={`#`}
+                  // to={`#`}
+                  to={`${match.path}/logout`}
+                  onClick={_logout}
                 >
-                  Logout
+                  {t("Logout")}
                 </NavLink>
               </div>
             </nav>
           </div>
           <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
             <Switch>
-              <Route path={`${path}/address`} component={AccountAddress} />
-              <Route path={`${path}/info`} component={AccountInfo} />
-              <Route path={`${path}/payment`} component={AccountPayment} />
-              <Route path={`${path}/wisht-list`} component={AccountWishlist} />
+              <Route
+                path={`${match.path}/address`}
+                component={AccountAddress}
+              />
+              <Route path={`${match.path}/info`} component={AccountInfo} />
+              <Route
+                path={`${match.path}/payment`}
+                component={AccountPayment}
+              />
+              <Route
+                path={`${match.path}/wishlist`}
+                component={AccountWishlist}
+              />
               <Route component={AccountOrders} />
             </Switch>
           </div>

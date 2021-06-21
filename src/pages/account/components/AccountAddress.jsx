@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslate } from "../../../core/Translate";
 
 function AccountAddress() {
+  let { t } = useTranslate();
+
   return (
     <div className="row">
       <div className="col-12 col-lg-6">
@@ -8,14 +11,15 @@ function AccountAddress() {
         <div className="card card-lg bg-light mb-8">
           <div className="card-body">
             {/* Heading */}
-            <h6 className="mb-6">Shipping Address</h6>
+            <h6 className="mb-6">{t(`Shipping Address`)}</h6>
             {/* Text */}
             <p className="text-muted mb-0">
               Daniel Robinson <br />
               3997 Raccoon Run <br />
               Kingston <br />
               45644 <br />
-              United States <br />
+              {t(`United States `)}
+              <br />
               6146389574
             </p>
             {/* Action */}
@@ -40,14 +44,14 @@ function AccountAddress() {
         <div className="card card-lg bg-light mb-8">
           <div className="card-body">
             {/* Heading */}
-            <h6 className="mb-6">Billing Address</h6>
+            <h6 className="mb-6">{t(`Billing Address`)}</h6>
             {/* Text */}
             <p className="text-muted mb-0">
               Daniel Robinson <br />
               3997 Raccoon Run <br />
               Kingston <br />
               45644 <br />
-              United States <br />
+              {t(`United States`)} <br />
               6146389574
             </p>
             {/* Action */}
@@ -73,7 +77,7 @@ function AccountAddress() {
           className="btn btn-block btn-lg btn-outline-border"
           href="account-address-edit.html"
         >
-          Add Address <i className="fe fe-plus" />
+          {t(`Add Address`)} <i className="fe fe-plus" />
         </a>
       </div>
     </div>

@@ -1,9 +1,12 @@
 import React from "react";
-import useTranslate from "../../core/useTranslate";
-import { NavLink } from "react-router-dom";
+import { useTranslate } from "../../core/Translate";
+import { NavLink, Link } from "react-router-dom";
 
 function Header() {
-  let { t } = useTranslate();
+  let { t, selectLanguage, language } = useTranslate();
+  function changeLanguage(lan) {
+    selectLanguage(lan);
+  }
   return (
     <>
       {/* NAVBAR */}
@@ -98,18 +101,27 @@ function Header() {
                   data-toggle="dropdown"
                   href="#"
                 >
-                  {t("English")}
+                  {language === "en" ? "English" : "Vietnamese"}
                 </a>
                 {/* Menu */}
                 <div className="dropdown-menu minw-0">
-                  <a className="dropdown-item" href="#">
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onClick={() => {
+                      changeLanguage("en");
+                    }}
+                  >
                     {t("English")}
                   </a>
-                  <a className="dropdown-item" href="#">
-                    {t("French")}
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    {t("German")}
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onClick={() => {
+                      changeLanguage("vn");
+                    }}
+                  >
+                    {t("Vietnamese")}
                   </a>
                 </div>
               </li>
@@ -184,51 +196,47 @@ function Header() {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <NavLink className="nav-link" data-toggle="dropdown" to="/">
+                <Link className="nav-link" data-toggle="dropdown" to={`/`}>
                   {t("Home")}
-                </NavLink>
+                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown position-static">
                 {/* Toggle */}
-                <NavLink
+                <Link
                   className="nav-link"
                   data-toggle="dropdown"
-                  to="/page-404"
+                  to={`/page-404`}
                 >
                   {t("Catalog")}
-                </NavLink>
+                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <NavLink className="nav-link" data-toggle="dropdown" to="/shop">
+                <Link className="nav-link" data-toggle="dropdown" to={`/shop`}>
                   {t("Shop")}
-                </NavLink>
+                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <NavLink
-                  className="nav-link"
-                  data-toggle="dropdown"
-                  to="/about"
-                >
+                <Link className="nav-link" data-toggle="dropdown" to={`/about`}>
                   {t("Pages")}
-                </NavLink>
+                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <NavLink className="nav-link" data-toggle="dropdown" to="/blog">
+                <Link className="nav-link" data-toggle="dropdown" to={`/blog`}>
                   {t("Blog")}
-                </NavLink>
+                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/page-404">
+                <Link className="nav-link" to={`/page-404`}>
                   {t("Docs")}
-                </NavLink>
+                </Link>
               </li>
             </ul>
             {/* Nav */}
@@ -239,14 +247,14 @@ function Header() {
                 </a>
               </li>
               <li className="nav-item ml-lg-n4">
-                <a className="nav-link" href="./account-orders.html">
+                <NavLink className="nav-link" to={`/auth`}>
                   <i className="fe fe-user" />
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item ml-lg-n4">
-                <a className="nav-link" href="./account-wishlist.html">
+                <NavLink className="nav-link" to={`/account/wishlist`}>
                   <i className="fe fe-heart" />
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item ml-lg-n4">
                 <a

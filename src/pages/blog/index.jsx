@@ -1,29 +1,32 @@
 import React from "react";
+import { useTranslate } from "../../core/Translate";
 
 function Blog() {
+  let { t } = useTranslate();
+
   return (
     <section className="pt-7 pb-12">
       <div className="container">
         <div className="row">
           <div className="col-12">
             {/* Heading */}
-            <h3 className="mb-7 text-center">Our Blog</h3>
+            <h3 className="mb-7 text-center">{t(`Our Blog`)}</h3>
             {/* Nav */}
             <nav className="nav justify-content-center mb-10">
               <a className="nav-link active" href="#">
-                All
+                {t(`All`)}
               </a>
               <a className="nav-link" href="#">
-                Company
+                {t(`Company`)}
               </a>
               <a className="nav-link" href="#">
-                Brand
+                {t(`Brand`)}
               </a>
               <a className="nav-link" href="#">
-                Fashion
+                {t(`Fashion`)}
               </a>
               <a className="nav-link" href="#">
-                Shop
+                {t(`Shop`)}
               </a>
             </nav>
           </div>
@@ -35,7 +38,7 @@ function Blog() {
               {/* Badge */}
               <div className="badge badge-white card-badge">
                 <time className="text-uppercase" dateTime="2019-06-20">
-                  Jun 20
+                  {t(`Jun 20`)}
                 </time>
               </div>
               {/* Image */}
@@ -47,19 +50,20 @@ function Blog() {
               {/* Body */}
               <div className="card-body px-0">
                 {/* Heading */}
-                <h5>So isn't land signs greater void face replenish.</h5>
+                <h5>{t(`So isn't land signs greater void face replenish.`)}</h5>
                 {/* Text */}
                 <p className="mb-0 text-gray-500">
-                  Midst one brought greater also morning green saying had good.
+                  {t(`Midst one brought greater also morning green saying had good.
                   Open stars day let over gathered, grass face one every light
-                  of under.
+                  of under.`)}
                 </p>
                 {/* Button */}
                 <a
                   className="btn btn-link stretched-link px-0 text-reset"
                   href="blog-post.html"
                 >
-                  Read More <i className="fe fe-arrow-right ml-2" />
+                  {t(`Read More `)}
+                  <i className="fe fe-arrow-right ml-2" />
                 </a>
               </div>
             </div>
@@ -70,7 +74,7 @@ function Blog() {
               {/* Badge */}
               <div className="badge badge-white card-badge">
                 <time className="text-uppercase" dateTime="2019-06-20">
-                  Jun 20
+                  {t(`Jun 20`)}
                 </time>
               </div>
               {/* Image */}
@@ -82,19 +86,20 @@ function Blog() {
               {/* Body */}
               <div className="card-body px-0">
                 {/* Heading */}
-                <h5>Sea good every which said first divided.</h5>
+                <h5>{t(`Sea good every which said first divided.`)}</h5>
                 {/* Text */}
                 <p className="mb-0 text-gray-500">
-                  From fruit shall stars over. Behold meat very, saw great
+                  {t(`From fruit shall stars over. Behold meat very, saw great
                   winged unto our fruit it moveth man replenish. Meat place is
-                  so fruit.
+                  so fruit.`)}
                 </p>
                 {/* Button */}
                 <a
                   className="btn btn-link stretched-link px-0 text-reset"
                   href="blog-post.html"
                 >
-                  Read More <i className="fe fe-arrow-right ml-2" />
+                  {t(`Read More `)}
+                  <i className="fe fe-arrow-right ml-2" />
                 </a>
               </div>
             </div>
@@ -105,7 +110,7 @@ function Blog() {
               {/* Badge */}
               <div className="badge badge-white card-badge">
                 <time className="text-uppercase" dateTime="2019-06-20">
-                  Jun 20
+                  {t(`Jun 20`)}
                 </time>
               </div>
               {/* Image */}
@@ -117,19 +122,20 @@ function Blog() {
               {/* Body */}
               <div className="card-body px-0">
                 {/* Heading */}
-                <h5>Morning let you created every day.</h5>
+                <h5>{t(`Morning let you created every day.`)}</h5>
                 {/* Text */}
                 <p className="mb-0 text-gray-500">
-                  Created spirit fly was fifth. Their heaven, subdue let earth
+                  {t(`Created spirit fly was fifth. Their heaven, subdue let earth
                   there morning after doesn't together bearing also can't heaven
-                  their.
+                  their.`)}
                 </p>
                 {/* Button */}
                 <a
                   className="btn btn-link stretched-link px-0 text-reset"
                   href="blog-post.html"
                 >
-                  Read More <i className="fe fe-arrow-right ml-2" />
+                  {t(`Read More `)}
+                  <i className="fe fe-arrow-right ml-2" />
                 </a>
               </div>
             </div>
@@ -140,7 +146,7 @@ function Blog() {
               {/* Badge */}
               <div className="badge badge-white card-badge">
                 <time className="text-uppercase" dateTime="2019-06-20">
-                  Jun 20
+                  {t(`Jun 20`)}
                 </time>
               </div>
               {/* Image */}
@@ -152,19 +158,20 @@ function Blog() {
               {/* Body */}
               <div className="card-body px-0">
                 {/* Heading */}
-                <h5>Third darkness and second dry second greater.</h5>
+                <h5>{t(`Third darkness and second dry second greater.`)}</h5>
                 {/* Text */}
                 <p className="mb-0 text-gray-500">
-                  Let meat subdue the first for fourth is. Them our meat isn't
+                  {t(`Let meat subdue the first for fourth is. Them our meat isn't
                   you'll, you're place Years dominion shall from years a hath
-                  Good appear yielding.
+                  Good appear yielding.`)}
                 </p>
                 {/* Button */}
                 <a
                   className="btn btn-link stretched-link px-0 text-reset"
                   href="blog-post.html"
                 >
-                  Read More <i className="fe fe-arrow-right ml-2" />
+                  {t(`Read More `)}
+                  <i className="fe fe-arrow-right ml-2" />
                 </a>
               </div>
             </div>
@@ -175,7 +182,7 @@ function Blog() {
               {/* Badge */}
               <div className="badge badge-white card-badge">
                 <time className="text-uppercase" dateTime="2019-06-20">
-                  Jun 20
+                  {t(`Jun 20`)}
                 </time>
               </div>
               {/* Image */}
@@ -187,19 +194,20 @@ function Blog() {
               {/* Body */}
               <div className="card-body px-0">
                 {/* Heading */}
-                <h5>Heaven upon heaven moveth every have.</h5>
+                <h5>{t(`Heaven upon heaven moveth every have.`)}</h5>
                 {/* Text */}
                 <p className="mb-0 text-gray-500">
-                  Divide own, there tree forth whales you, fill creepeth our.
+                  {t(`Divide own, there tree forth whales you, fill creepeth our.
                   You're itself may yielding green was fly one kind fish hath be
-                  be winged.
+                  be winged.`)}
                 </p>
                 {/* Button */}
                 <a
                   className="btn btn-link stretched-link px-0 text-reset"
                   href="blog-post.html"
                 >
-                  Read More <i className="fe fe-arrow-right ml-2" />
+                  {t(`Read More `)}
+                  <i className="fe fe-arrow-right ml-2" />
                 </a>
               </div>
             </div>
@@ -210,7 +218,7 @@ function Blog() {
               {/* Badge */}
               <div className="badge badge-white card-badge">
                 <time className="text-uppercase" dateTime="2019-06-20">
-                  Jun 20
+                  {t(`Jun 20`)}
                 </time>
               </div>
               {/* Image */}
@@ -222,18 +230,19 @@ function Blog() {
               {/* Body */}
               <div className="card-body px-0">
                 {/* Heading */}
-                <h5>Created their subdue together.</h5>
+                <h5>{t(`Created their subdue together.`)}</h5>
                 {/* Text */}
                 <p className="mb-0 text-gray-500">
-                  Stars female night fowl our second in great can't after he sea
-                  thing so a said two. Fowl may open first.
+                  {t(`Stars female night fowl our second in great can't after he sea
+                  thing so a said two. Fowl may open first.`)}
                 </p>
                 {/* Button */}
                 <a
                   className="btn btn-link stretched-link px-0 text-reset"
                   href="blog-post.html"
                 >
-                  Read More <i className="fe fe-arrow-right ml-2" />
+                  {t(`Read More `)}
+                  <i className="fe fe-arrow-right ml-2" />
                 </a>
               </div>
             </div>
@@ -246,7 +255,7 @@ function Blog() {
               <div className="col-12 text-center">
                 {/* Caption */}
                 <p className="font-size-sm text-muted">
-                  Showing 16 of 24 products
+                  {t(`Showing 16 of 24 products`)}
                 </p>
                 {/* Progress */}
                 <div
@@ -264,7 +273,7 @@ function Blog() {
                 </div>
                 {/* Button */}
                 <button className="btn btn-sm btn-outline-dark">
-                  Load more
+                  {t(`Load more`)}
                 </button>
               </div>
             </div>

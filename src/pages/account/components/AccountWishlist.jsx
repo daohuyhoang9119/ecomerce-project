@@ -1,8 +1,11 @@
 import React from "react";
+import { useTranslate } from "../../../core/Translate";
 
-function AccountWishlist(props) {
+function AccountWishlist() {
+  let { t } = useTranslate();
   return (
     <>
+      {/* Products */}
       <div className="row">
         {/* Item */}
         <div className="col-6 col-md-4">
@@ -19,7 +22,7 @@ function AccountWishlist(props) {
                 data-toggle="modal"
                 data-target="#modalProduct"
               >
-                <i className="fe fe-eye mr-2 mb-1" /> Quick View
+                <i className="fe fe-eye mr-2 mb-1" /> {t(`Quick View`)}
               </button>
               {/* Image */}
               <img
@@ -31,10 +34,10 @@ function AccountWishlist(props) {
             {/* Body */}
             <div className="card-body font-weight-bold text-center">
               <a className="text-body" href="product.html">
-                Cotton floral print Dress
+                {t(`Cotton floral print Dress`)}
               </a>{" "}
               <br />
-              <span className="text-muted">$40.00</span>
+              <span className="text-muted">{t(`$40.00`)}</span>
             </div>
           </div>
         </div>
@@ -49,7 +52,7 @@ function AccountWishlist(props) {
               </button>
               {/* Badge */}
               <span className="badge badge-dark card-badge card-badge-left text-uppercase">
-                Sale
+                {t(`Sale`)}
               </span>
               {/* Button */}
               <button
@@ -57,7 +60,8 @@ function AccountWishlist(props) {
                 data-toggle="modal"
                 data-target="#modalProduct"
               >
-                <i className="fe fe-eye mr-2 mb-1" /> Quick View
+                <i className="fe fe-eye mr-2 mb-1" />
+                {t(`Quick View`)}
               </button>
               {/* Image */}
               <img
@@ -69,14 +73,14 @@ function AccountWishlist(props) {
             {/* Body */}
             <div className="card-body font-weight-bold text-center">
               <a className="text-body" href="product.html">
-                Suede cross body Bag
+                {t(`Suede cross body Bag`)}
               </a>{" "}
               <br />
               <span>
                 <span className="font-size-xs text-gray-350 text-decoration-line-through">
-                  $85.00
+                  {t(`$85.00`)}
                 </span>
-                <span className="text-primary">$49.00</span>
+                <span className="text-primary">{t(`$49.00`)}</span>
               </span>
             </div>
           </div>
@@ -96,7 +100,8 @@ function AccountWishlist(props) {
                 data-toggle="modal"
                 data-target="#modalProduct"
               >
-                <i className="fe fe-eye mr-2 mb-1" /> Quick View
+                <i className="fe fe-eye mr-2 mb-1" />
+                {t(`Quick View`)}
               </button>
               {/* Image */}
               <img
@@ -108,9 +113,9 @@ function AccountWishlist(props) {
             {/* Body */}
             <div className="card-body font-weight-bold text-center">
               <a className="text-reset" href="product.html">
-                Cotton leaf print Shirt
+                {t(`Cotton leaf print Shirt`)}
               </a>
-              <span className="text-muted">$65.00</span>
+              <span className="text-muted">{t(`$65.00`)}</span>
             </div>
           </div>
         </div>
@@ -129,7 +134,7 @@ function AccountWishlist(props) {
                 data-toggle="modal"
                 data-target="#modalProduct"
               >
-                <i className="fe fe-eye mr-2 mb-1" /> Quick View
+                <i className="fe fe-eye mr-2 mb-1" /> {t(`Quick View`)}
               </button>
               {/* Image */}
               <img
@@ -141,11 +146,11 @@ function AccountWishlist(props) {
             {/* Body */}
             <div className="card-body font-weight-bold text-center">
               <a className="text-body" href="product.html">
-                Leather Sneakers
+                {t(`Leather Sneakers`)}
               </a>{" "}
               <br />
               <a className="text-primary" href="#">
-                Select Options
+                {t(`Select Options`)}
               </a>
             </div>
           </div>
@@ -165,7 +170,7 @@ function AccountWishlist(props) {
                 data-toggle="modal"
                 data-target="#modalProduct"
               >
-                <i className="fe fe-eye mr-2 mb-1" /> Quick View
+                <i className="fe fe-eye mr-2 mb-1" /> {t(`Quick View`)}
               </button>
               {/* Image */}
               <img
@@ -177,10 +182,10 @@ function AccountWishlist(props) {
             {/* Body */}
             <div className="card-body font-weight-bold text-center">
               <a className="text-body" href="product.html">
-                Another fine dress
+                {t(`Another fine dress`)}
               </a>{" "}
               <br />
-              <span className="text-muted">$99.00</span>
+              <span className="text-muted">{t(`$99.00`)}</span>
             </div>
           </div>
         </div>

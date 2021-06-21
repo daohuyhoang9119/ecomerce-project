@@ -1,5 +1,5 @@
 import React from "react";
-import useTranslate from "../../../core/useTranslate";
+import { useTranslate } from "../../../core/Translate";
 import { NavLink } from "react-router-dom";
 
 function BestPicks() {

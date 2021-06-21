@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslate } from "../../../core/Translate";
 
 function AccountOrders() {
+  let { t } = useTranslate();
+
   return (
     <>
       <div className="card card-lg mb-5 border">
@@ -11,7 +14,7 @@ function AccountOrders() {
               <div className="row">
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order No:</h6>
+                  <h6 className="heading-xxxs text-muted">{t(`Order No:`)}</h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
                     673290789
@@ -19,25 +22,31 @@ function AccountOrders() {
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Shipped date:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t(`Shipped date:`)}
+                  </h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
-                    <time dateTime="2019-10-01">01 Oct, 2019</time>
+                    <time dateTime="2019-10-01">{t(`01 Oct, 2019`)}</time>
                   </p>
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Status:</h6>
+                  <h6 className="heading-xxxs text-muted">{t(`Status:`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm font-weight-bold">
-                    Awating Delivery
+                    {t(`Awating Delivery`)}
                   </p>
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order Amount:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t(`Order Amount:`)}
+                  </h6>
                   {/* Text */}
-                  <p className="mb-0 font-size-sm font-weight-bold">$259.00</p>
+                  <p className="mb-0 font-size-sm font-weight-bold">
+                    {t(`$259.00`)}
+                  </p>
                 </div>
               </div>
             </div>
@@ -82,7 +91,7 @@ function AccountOrders() {
                       href="#!"
                     >
                       <div className="font-size-xxs font-weight-bold">
-                        +2 <br /> more
+                        +2 <br /> {t(`more`)}
                       </div>
                     </a>
                   </div>
@@ -97,7 +106,7 @@ function AccountOrders() {
                     className="btn btn-sm btn-block btn-outline-dark"
                     href="account-order.html"
                   >
-                    Order Details
+                    {t(`Order Details`)}
                   </a>
                 </div>
                 <div className="col-6">
@@ -106,7 +115,7 @@ function AccountOrders() {
                     className="btn btn-sm btn-block btn-outline-dark"
                     href="#!"
                   >
-                    Track order
+                    {t(`Track order`)}
                   </a>
                 </div>
               </div>
@@ -123,7 +132,7 @@ function AccountOrders() {
               <div className="row">
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order No:</h6>
+                  <h6 className="heading-xxxs text-muted">{t(`Order No:`)}</h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
                     871090437
@@ -131,25 +140,31 @@ function AccountOrders() {
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Shipped date:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t(`Shipped date:`)}
+                  </h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
-                    <time dateTime="2019-09-25">25 Sep, 2019</time>
+                    <time dateTime="2019-09-25">{t(`25 Sep, 2019`)}</time>
                   </p>
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Status:</h6>
+                  <h6 className="heading-xxxs text-muted">{t(`Status:`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm font-weight-bold">
-                    In Processing
+                    {t(`In Processing`)}
                   </p>
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order Amount:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t(`Order Amount:`)}
+                  </h6>
                   {/* Text */}
-                  <p className="mb-0 font-size-sm font-weight-bold">$75.00</p>
+                  <p className="mb-0 font-size-sm font-weight-bold">
+                    {t(`$75.00`)}
+                  </p>
                 </div>
               </div>
             </div>
@@ -178,7 +193,7 @@ function AccountOrders() {
                     className="btn btn-sm btn-block btn-outline-dark"
                     href="account-order.html"
                   >
-                    Order Details
+                    {t(`Order Details`)}
                   </a>
                 </div>
                 <div className="col-6">
@@ -187,7 +202,7 @@ function AccountOrders() {
                     className="btn btn-sm btn-block btn-outline-dark"
                     href="#!"
                   >
-                    Track order
+                    {t(`Track order`)}
                   </a>
                 </div>
               </div>
@@ -204,7 +219,7 @@ function AccountOrders() {
               <div className="row">
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order No:</h6>
+                  <h6 className="heading-xxxs text-muted">{t(`Order No:`)}</h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
                     891230563
@@ -212,7 +227,9 @@ function AccountOrders() {
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Shipped date:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t(`Shipped date:`)}
+                  </h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
                     <time dateTime="2019-09-07">07 Sep, 2019</time>
@@ -220,17 +237,21 @@ function AccountOrders() {
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Status:</h6>
+                  <h6 className="heading-xxxs text-muted">{t(`Status:`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm font-weight-bold">
-                    Delivered
+                    {t(`Delivered`)}
                   </p>
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order Amount:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t(`Order Amount:`)}
+                  </h6>
                   {/* Text */}
-                  <p className="mb-0 font-size-sm font-weight-bold">$69.00</p>
+                  <p className="mb-0 font-size-sm font-weight-bold">
+                    {t(`$69.00`)}
+                  </p>
                 </div>
               </div>
             </div>
@@ -268,7 +289,7 @@ function AccountOrders() {
                     className="btn btn-sm btn-block btn-outline-dark"
                     href="account-order.html"
                   >
-                    Order Details
+                    {t(`Order Details`)}
                   </a>
                 </div>
                 <div className="col-6">
@@ -277,7 +298,7 @@ function AccountOrders() {
                     className="btn btn-sm btn-block btn-outline-dark"
                     href="#!"
                   >
-                    Track order
+                    {t(`Track order`)}
                   </a>
                 </div>
               </div>

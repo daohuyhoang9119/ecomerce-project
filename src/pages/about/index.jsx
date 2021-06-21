@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslate } from "../../core/Translate";
 
-function About(props) {
+function About() {
+  let { t } = useTranslate();
   return (
     <div>
       {/* WELCOME */}
@@ -13,7 +15,7 @@ function About(props) {
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               {/* Heading */}
               <h1 className="mb-0 text-center text-white">
-                We believe we can all make a stylish.
+                {t(`We believe we can all make a stylish.`)}
               </h1>
             </div>
           </div>
@@ -41,19 +43,21 @@ function About(props) {
             </div>
             <div className="col-12 col-md-6 col-lg-5">
               {/* Preheading */}
-              <h6 className="heading-xxs mb-3 text-gray-400">Our story</h6>
+              <h6 className="heading-xxs mb-3 text-gray-400">
+                {t(`Our story`)}
+              </h6>
               {/* Heading */}
-              <h2 className="mb-7">About our Store</h2>
+              <h2 className="mb-7">{t(`About our Store`)}</h2>
               {/* Text */}
               <p className="font-size-lg text-muted">
-                Open created shall two he second moving whose. He face whose two
+                {t(`Open created shall two he second moving whose. He face whose two
                 upon, fowl behold waters. Fly there their day creepeth. Darkness
                 beginning spirit after. Creepeth subdue. Brought may, first.
-                Under living that.
+                Under living that.`)}
               </p>
               <p className="mb-0 font-size-lg text-muted">
-                Third. For morning whales saw were had seed can't divide it
-                light shall moveth, us blessed given wherein.
+                {t(`Third. For morning whales saw were had seed can't divide it
+                light shall moveth, us blessed given wherein.`)}
               </p>
             </div>
           </div>
@@ -65,33 +69,33 @@ function About(props) {
           <div className="row">
             <div className="col-12 text-center">
               {/* Heading */}
-              <h2 className="mb-10">Fashion Democracy</h2>
+              <h2 className="mb-10">{t(`Fashion Democracy`)}</h2>
             </div>
           </div>
           <div className="row justify-content-center mb-9 font-size-lg text-gray-500">
             <div className="col-12 col-md-5">
               <p>
-                And whales be, earth thing seed whales, forth beginning made may
+                {t(`And whales be, earth thing seed whales, forth beginning made may
                 beginning sea great void likeness open beast firmament very
                 living cattle divided fruitful may. Sea created saw fifth so
-                thing signs meat.
+                thing signs meat.`)}
               </p>
               <p className="mb-md-0">
-                Green fruit meat stars, creepeth second he meat. Appear is
-                fruitful given Winged. Gathered second so us saying blessed, he.
+                {t(`Green fruit meat stars, creepeth second he meat. Appear is
+                fruitful given Winged. Gathered second so us saying blessed, he.`)}
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-5 font-size-lg text-gray-500">
               <p>
-                Male was. Itself. Have isn't first divide and i day, moving
+                {t(`Male was. Itself. Have isn't first divide and i day, moving
                 she'd appear open dominion sea him days multiply our, make
                 firmament rule there made set midst creeping let won't morning
-                their great fish.
+                their great fish.`)}
               </p>
               <p className="mb-0">
-                Unto over unto together first shall greater yielding made
+                {t(`Unto over unto together first shall greater yielding made
                 dominion fill. First waters bring made blessed likeness bring
-                forth had. Creature one.
+                forth had. Creature one.`)}
               </p>
             </div>
           </div>
@@ -99,7 +103,7 @@ function About(props) {
             <div className="col-12 text-center">
               {/* Button */}
               <a className="btn btn-dark" href="shop.html">
-                Shop Now <i className="fe fe-arrow-right ml-2" />
+                {t(`Shop Now`)} <i className="fe fe-arrow-right ml-2" />
               </a>
             </div>
           </div>
@@ -127,20 +131,22 @@ function About(props) {
             </div>
             <div className="col-12 col-md-6 col-lg-5 order-md-1">
               {/* Preheading */}
-              <h6 className="heading-xxs mb-3 text-gray-400">Who we are</h6>
+              <h6 className="heading-xxs mb-3 text-gray-400">
+                {t(`Who we are`)}
+              </h6>
               {/* Heading */}
-              <h2 className="mb-7">Our Story</h2>
+              <h2 className="mb-7">{t(`Our story`)}</h2>
               {/* Text */}
               <p className="font-size-lg text-muted">
-                Behold divided hath without. Place dominion. Place behold spirit
+                {t(`Behold divided hath without. Place dominion. Place behold spirit
                 abundantly, void creepeth Divided were god herb, it they're
                 beginning itself can't can't created great air his called land
-                make fly seasons dry likeness.
+                make fly seasons dry likeness.`)}
               </p>
               <p className="mb-0 font-size-lg text-muted">
-                Fish upon you you'll midst waters. Divided had life years to own
+                {t(`Fish upon you you'll midst waters. Divided had life years to own
                 gathering replenish seasons Great meat. Cattle earth were signs
-                winged so image together also.
+                winged so image together also.`)}
               </p>
             </div>
           </div>
@@ -153,10 +159,10 @@ function About(props) {
             <div className="col-12 col-lg-10 col-xl-8">
               {/* Text */}
               <p className="font-size-h5 line-height-base text-center text-white">
-                Together won't divided fourth let grass above forth. Creature
+                {t(`Together won't divided fourth let grass above forth. Creature
                 midst let cattle place tree. Gathered whose land form fruitful
                 under bring creeping in upon void man unto divided itself
-                gathered.
+                gathered.`)}
               </p>
             </div>
           </div>
@@ -204,10 +210,10 @@ function About(props) {
             <div className="col-12 text-center">
               {/* Preheading */}
               <h6 className="heading-xxs mb-3 text-gray-400">
-                What buyers say
+                {t(`What buyers say`)}
               </h6>
               {/* Heading */}
-              <h2 className="mb-10">Customers Reviews</h2>
+              <h2 className="mb-10">{t(`Customers Reviews`)}</h2>
               {/* Slider */}
               <div
                 className="flickity-buttons-lg flickity-buttons-offset px-lg-12"
@@ -216,42 +222,42 @@ function About(props) {
                 {/* Item */}
                 <blockquote className="blockquote col-12">
                   <p className="mb-6">
-                    Given wherein. Doesn't called also and air sea to make first
+                    {t(`Given wherein. Doesn't called also and air sea to make first
                     subdue beginning. Appear seasons the it after whose
                     beginning. Hath can't good life. They're multiply made give
                     divided open, be likeness Cattle be have. Life tree
-                    darkness. She'd very.
+                    darkness. She'd very.`)}
                   </p>
                   <footer className="blockquote-footer">
-                    Darrell Baker,{" "}
+                    {t(`Darrell Baker`)},{" "}
                     <time dateTime="2019-05-18">18 May 2019</time>
                   </footer>
                 </blockquote>
                 {/* Item */}
                 <blockquote className="blockquote col-12">
                   <p className="mb-6">
-                    Given wherein. Doesn't called also and air sea to make first
+                    {t(`Given wherein. Doesn't called also and air sea to make first
                     subdue beginning. Appear seasons the it after whose
                     beginning. Hath can't good life. They're multiply made give
                     divided open, be likeness Cattle be have. Life tree
-                    darkness. She'd very.
+                    darkness. She'd very.`)}
                   </p>
                   <footer className="blockquote-footer">
-                    Darrell Baker,{" "}
+                    {t(`Darrell Baker`)},{" "}
                     <time dateTime="2019-05-18">18 May 2019</time>
                   </footer>
                 </blockquote>
                 {/* Item */}
                 <blockquote className="blockquote col-12">
                   <p className="mb-6">
-                    Given wherein. Doesn't called also and air sea to make first
+                    {t(`Given wherein. Doesn't called also and air sea to make first
                     subdue beginning. Appear seasons the it after whose
                     beginning. Hath can't good life. They're multiply made give
                     divided open, be likeness Cattle be have. Life tree
-                    darkness. She'd very.
+                    darkness. She'd very.`)}
                   </p>
                   <footer className="blockquote-footer">
-                    Darrell Baker,{" "}
+                    {t(`Darrell Baker`)},{" "}
                     <time dateTime="2019-05-18">18 May 2019</time>
                   </footer>
                 </blockquote>
@@ -288,10 +294,10 @@ function About(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="heading-xxs mb-1">Free shipping</h6>
+                  <h6 className="heading-xxs mb-1">{t(`Free shipping`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    From all orders over $100
+                    {t(`From all orders over $100`)}
                   </p>
                 </div>
               </div>
@@ -304,10 +310,10 @@ function About(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="mb-1 heading-xxs">Free returns</h6>
+                  <h6 className="mb-1 heading-xxs">{t(`Free returns`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    Return money within 30 days
+                    {t(`Return money within 30 days`)}
                   </p>
                 </div>
               </div>
@@ -320,10 +326,10 @@ function About(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="mb-1 heading-xxs">Secure shopping</h6>
+                  <h6 className="mb-1 heading-xxs">{t(`Secure shopping`)}</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    You're in safe hands
+                    {t(`You're in safe hands`)}
                   </p>
                 </div>
               </div>
@@ -336,10 +342,12 @@ function About(props) {
                 {/* Body */}
                 <div className="ml-6">
                   {/* Heading */}
-                  <h6 className="mb-1 heading-xxs">Over 10,000 Styles</h6>
+                  <h6 className="mb-1 heading-xxs">
+                    {t(`Over 10,000 Styles`)}
+                  </h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm text-muted">
-                    We have everything you need
+                    {t(`We have everything you need`)}
                   </p>
                 </div>
               </div>
