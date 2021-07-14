@@ -1,16 +1,14 @@
 import React from "react";
-import { Route, Switch, useRouteMatch, NavLink } from "react-router-dom";
+import {  Switch, useRouteMatch, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useTranslate } from "../../core/Translate";
 
-import AccountAddress from "./components/AccountAddress";
-import AccountInfo from "./components/AccountInfo";
-import AccountOrders from "./components/AccountOrders";
-import AccountPayment from "./components/AccountPayment";
-import AccountWishlist from "./components/AccountWishlist";
-import { logout } from "../../redux/reducer/authReducer";
 
-function Account() {
+import { logout } from "../../redux/reducer/authReducer";
+import { RouteWithSubRoutes } from "../../core/routerConfig";
+import { logoutAction } from "../../redux/action/authAction";
+
+function Account({routes}) {
   // let { path } = useRouteMatch();
   let dispatch = useDispatch();
   let match = useRouteMatch();
@@ -18,7 +16,7 @@ function Account() {
 
   function _logout(e) {
     e.preventDefault();
-    dispatch(logout());
+    dispatch(logoutAction());
   }
 
   return (
@@ -85,11 +83,14 @@ function Account() {
           </div>
           <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
             <Switch>
-              <Route
+              {/* <Route
                 path={`${match.path}/address`}
                 component={AccountAddress}
               />
-              <Route path={`${match.path}/info`} component={AccountInfo} />
+              <Route 
+                path={`${match.path}/info`} 
+                component={AccountInfo} 
+              />
               <Route
                 path={`${match.path}/payment`}
                 component={AccountPayment}
@@ -98,7 +99,12 @@ function Account() {
                 path={`${match.path}/wishlist`}
                 component={AccountWishlist}
               />
-              <Route component={AccountOrders} />
+              <Route component={AccountOrders} /> */}
+              {
+                routes.map((route,i) => (
+                  <RouteWithSubRoutes key={i} {...route}/>
+                ))
+              }
             </Switch>
           </div>
         </div>

@@ -2,39 +2,38 @@ import React from "react";
 // import useValidate from "../../../core/useValidate";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslate } from "../../../core/Translate";
-import { loginAction } from "../../../redux/reducer/authReducer";
+// import { loginAction } from "../../../redux/reducer/authReducer";
 import { useForm, ErrorMessage } from "../../../core/useform";
+import { loginAction } from './../../../redux/action/authAction';
 
 function LogIn() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
   
-  let { register, handleSubmit, error} = useForm(
+  let { register, handleSubmit, error,form} = useForm(
     {
       username: "",
       password: "",
     },
     {
-      rule: {
-        username: {
-          require: true,
-          pattern: "email",
-        },
-        password: {
-          require: true,
-          min: 6,
-          max: 32,
-        },
-      },
+      // rule: {
+      //   username: {
+      //     require: true,
+      //     pattern: "email",
+      //   },
+      //   password: {
+      //     require: true,
+      //     min: 6,
+      //     max: 32,
+      //   },
+      // },
       message: {
         username: {
-          require: "Email không được để trống ",
+          required: "Email không được để trống ",
           pattern: "Email không đúng định dạng email vd:example@gmail.com",
         },
         password: {
-          require: "Password không được để trống",
-          pattern:
-            "Password phải hơn 8 ký tự, ít nhất 1 số, ít nhất 1 ký tự đặc biệt",
+          required: "Password không được để trống",
         },
       },
     }
@@ -50,7 +49,7 @@ function LogIn() {
   // }
 
   function formSubmitValidateSuccess(form) {
-    alert("thanh cong");
+    dispatch(loginAction(form))
   }
   // const auth = useSelector(state => state.auth);
   console.log('render form');
@@ -73,8 +72,8 @@ function LogIn() {
                   </label>
                   <input
                     className="form-control form-control-sm"
-                    id="loginEmail"
-                    type="email"
+                    // id="loginEmail"
+                    // type="email"
                     placeholder="Email Address *"
                     // required
                     // name="username"
@@ -96,7 +95,7 @@ function LogIn() {
                   </label>
                   <input
                     className="form-control form-control-sm"
-                    id="loginPassword"
+                    // id="loginPassword"
                     type="password"
                     placeholder="Password *"
                     // required

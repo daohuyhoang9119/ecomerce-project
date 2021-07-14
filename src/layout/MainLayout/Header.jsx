@@ -196,9 +196,9 @@ function Header() {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to={`/`}>
+                <NavLink className="nav-link" data-toggle="dropdown" to="/">
                   {t("Home")}
-                </Link>
+                </NavLink>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown position-static">
@@ -206,7 +206,7 @@ function Header() {
                 <Link
                   className="nav-link"
                   data-toggle="dropdown"
-                  to={`/page-404`}
+                  to = "/page-404"
                 >
                   {t("Catalog")}
                 </Link>
@@ -214,27 +214,27 @@ function Header() {
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to={`/shop`}>
+                <Link className="nav-link" data-toggle="dropdown" to="/shop">
                   {t("Shop")}
                 </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to={`/about`}>
+                <Link className="nav-link" data-toggle="dropdown" to="/about">
                   {t("Pages")}
                 </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to={`/blog`}>
+                <Link className="nav-link" data-toggle="dropdown" to="/blog">
                   {t("Blog")}
                 </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={`/page-404`}>
+                <Link className="nav-link" to="/page-404">
                   {t("Docs")}
                 </Link>
               </li>

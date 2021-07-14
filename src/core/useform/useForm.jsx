@@ -14,9 +14,12 @@ export function useForm(initForm, validate) {
   function check() {
     let errorObj = {};
     let { rule, message } = validate;
+
     if (!message) {
       message = {};
     }
+
+
     for (let i in rule) {
       let r = rule[i];
       let m = message[i] || {};
@@ -25,6 +28,7 @@ export function useForm(initForm, validate) {
         errorObj[i] = m?.require || "Trường này là bắt buộc";
         continue;
       }
+      
 
       if (r.pattern && form[i]) {
         let { pattern } = r;
@@ -39,9 +43,10 @@ export function useForm(initForm, validate) {
       }
 
       if (r.min) {
-        if (form[i].length < r.min) {
+        if (form[i].length < r.min && form[i].length > 1) {
           errorObj[i] = m?.min || `Trường này không được ít hơn ${r.min} ký tự`;
         }
+       
       }
       if (r.max) {
         if (form[i].length > r.max) {
