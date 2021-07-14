@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 let emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
 let phonePattern = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i;
-// let passwordPattern =
-//   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
 let websitePattern =
   /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/i;
 let facebookPattern =
@@ -33,7 +31,7 @@ export function useForm(initForm, validate) {
         if (pattern === "email") pattern = emailPattern;
         if (pattern === "phone") pattern = phonePattern;
         if (pattern === "website") pattern = websitePattern;
-        // if (pattern === "password") pattern = websitePattern;
+       
         if (pattern === "urlFacebook") pattern = facebookPattern;
         if (!pattern?.test(form[i])) {
           errorObj[i] = m?.pattern || "Trường này không đúng định dạng";
@@ -59,19 +57,15 @@ export function useForm(initForm, validate) {
   function inputOnChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    // let type = e.target.type;
-
-    // if (type === "checkbox") {
-    //   value = e.target.checked;
-    // }
-
     // setForm({
     //   ...form,
-    //   [name]: value,
-    // });
-    //tranh rerender nhieu lan
+    //   [name]:value
+    // })
     form[name] = value;
   }
+
+
+  //use hook form
 
   function register(name, rule) {
     if (rule) {
@@ -80,13 +74,16 @@ export function useForm(initForm, validate) {
       }
       validate.rule[name] = rule;
     }
+
+
     return {
-      name,
+      name:name,
       onChange: inputOnChange,
-      defaultValue: form[name],
+      defaultValue : form[name],
     };
   }
 
+  //return a callback function in pageform to put it into a submit function in it
   function handleSubmit(callback) {
     return (e) => {
       e.preventDefault();
@@ -94,6 +91,7 @@ export function useForm(initForm, validate) {
       if (Object.keys(errObj).length === 0) {
         callback(form);
         // console.log(form);
+        console.log('van chay dc')
       }
     };
   }

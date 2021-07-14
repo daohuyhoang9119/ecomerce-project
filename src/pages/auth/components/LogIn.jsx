@@ -1,6 +1,6 @@
 import React from "react";
 // import useValidate from "../../../core/useValidate";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslate } from "../../../core/Translate";
 import { loginAction } from "../../../redux/reducer/authReducer";
 import { useForm, ErrorMessage } from "../../../core/useform";
@@ -8,38 +8,8 @@ import { useForm, ErrorMessage } from "../../../core/useform";
 function LogIn() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
-  //form
-  // const { form, error, inputOnChange, check } = useValidate(
-  // {
-  //   username: "",
-  //   password: "",
-  // },
-  // {
-  //   rule: {
-  //     username: {
-  //       require: true,
-  //       pattern: "email",
-  //     },
-  //     password: {
-  //       require: true,
-  //       min: 6,
-  //       max: 32,
-  //     },
-  //   },
-  //   message: {
-  //     username: {
-  //       require: "Email không được để trống ",
-  //       pattern: "Email không đúng định dạng",
-  //     },
-  //     password: {
-  //       require: "Password không được để trống",
-  //       pattern:
-  //         "Password phải hơn 8 ký tự, ít nhất 1 số, ít nhất 1 ký tự đặc biệt",
-  //     },
-  //   },
-  // }
-  // );
-  let { register, handleSubmit, error } = useForm(
+  
+  let { register, handleSubmit, error} = useForm(
     {
       username: "",
       password: "",
@@ -59,7 +29,7 @@ function LogIn() {
       message: {
         username: {
           require: "Email không được để trống ",
-          pattern: "Email không đúng định dạng",
+          pattern: "Email không đúng định dạng email vd:example@gmail.com",
         },
         password: {
           require: "Password không được để trống",
@@ -70,18 +40,21 @@ function LogIn() {
     }
   );
 
-  // async function onSubmit(e) {
+  // function onSubmit(e) {
   //   // e.preventDefault();
   //   // let errObj = check();
   //   // if (Object.keys(errObj).length === 0) {
   //   //   dispatch(loginAction(form));
-  //   //   // console.log(form);
+  //   //   console.log(form);
   //   // }
   // }
 
-  function formSubmit(form) {
+  function formSubmitValidateSuccess(form) {
     alert("thanh cong");
   }
+  // const auth = useSelector(state => state.auth);
+  console.log('render form');
+
   return (
     <div className="col-12 col-md-6">
       {/* Card */}
@@ -90,7 +63,7 @@ function LogIn() {
           {/* Heading */}
           <h6 className="mb-7">{t(`Returning Customer`)}</h6>
           {/* Form */}
-          <form onSubmit={handleSubmit(formSubmit)}>
+          <form onSubmit={handleSubmit(formSubmitValidateSuccess)}>
             <div className="row">
               <div className="col-12">
                 {/* Email */}
@@ -103,11 +76,11 @@ function LogIn() {
                     id="loginEmail"
                     type="email"
                     placeholder="Email Address *"
-                    required
+                    // required
                     // name="username"
                     // value={form.username}
                     // onChange={inputOnChange}
-                    {...register("username")}
+                    {...register("username",{require:true, pattern:'email'})}
                   />
                   <ErrorMessage error={error.username} />
                   {/* {error.username && (
@@ -126,13 +99,14 @@ function LogIn() {
                     id="loginPassword"
                     type="password"
                     placeholder="Password *"
-                    required
+                    // required
                     // name="password"
                     // value={form.password}
                     // onChange={inputOnChange}
-                    {...register("password", {
-                      required: true,
-                      pattern: "email",
+                    {...register("password",{
+                      require: true,
+                      min: 6,
+                      max: 32,
                     })}
                   />
                   <ErrorMessage error={error.password} />
@@ -176,7 +150,6 @@ function LogIn() {
                 <button
                   className="btn btn-sm btn-dark"
                   type="submit"
-                  // onClick={onSubmit}
                 >
                   {t(`Sign In`)}
                 </button>
