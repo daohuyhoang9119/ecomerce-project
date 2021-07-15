@@ -1,12 +1,18 @@
 import React from "react";
-import useValidate from "../../../core/useValidate";
+// import useValidate from "../../../core/useValidate";
+
 import { useTranslate } from "../../../core/Translate";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useForm, ErrorMessage } from '../../../core/useform';
+import { registerAction } from './../../../redux/action/authAction';
 
 function Register() {
   let { t } = useTranslate();
+  let dispatch = useDispatch();
 
   //form
-  const { form, error, inputOnChange, check } = useValidate(
+  const { register, handleSubmit, error,form } = useForm(
     {
       first_name: "",
       last_name: "",
@@ -15,27 +21,27 @@ function Register() {
       confirm_password: "",
     },
     {
-      rule: {
-        first_name: {
-          require: true,
-        },
-        last_name: {
-          require: true,
-        },
-        username: {
-          require: true,
-          pattern: "email",
-        },
-        password: {
-          require: true,
-          min: 6,
-          max: 32,
-        },
-        confirm_password: {
-          require: true,
-          match: "password",
-        },
-      },
+      // rule: {
+      //   first_name: {
+      //     require: true,
+      //   },
+      //   last_name: {
+      //     require: true,
+      //   },
+      //   username: {
+      //     require: true,
+      //     pattern: "email",
+      //   },
+      //   password: {
+      //     require: true,
+      //     min: 6,
+      //     max: 32,
+      //   },
+      //   confirm_password: {
+      //     require: true,
+      //     match: "password",
+      //   },
+      // },
       message: {
         first_name: {
           require: "Trường này không được để trống ",
@@ -60,16 +66,22 @@ function Register() {
     }
   );
 
-  function onRegister(e) {
-    e.preventDefault();
-    let errObj = check();
-    if (Object.keys(errObj).length === 0) {
-      // let res = await Auth.login({
-      //   username: form.username,
-      //   password: form.password,
-      // });
-      console.log(form);
-    }
+
+
+
+  // function onRegister(e) {
+  //   e.preventDefault();
+  //   let errObj = check();
+  //   if (Object.keys(errObj).length === 0) {
+  //     // let res = await Auth.login({
+  //     //   username: form.username,
+  //     //   password: form.password,
+  //     // });
+  //     console.log(form);
+  //   }
+  // }
+  function formRegisterSubmitSuccess(form){
+    dispatch(registerAction(form))
   }
 
   return (
@@ -81,7 +93,7 @@ function Register() {
             {/* Heading */}
             <h6 className="mb-7">{t(`New Customer`)}</h6>
             {/* Form */}
-            <form>
+            <form onSubmit={handleSubmit(formRegisterSubmitSuccess)}>
               <div className="row">
                 <div className="col-12">
                   {/* Email */}
@@ -92,16 +104,18 @@ function Register() {
                     <input
                       className="form-control form-control-sm"
                       id="registerFirstName"
-                      type="text"
+                      // type="text"
                       placeholder="First Name *"
-                      required
-                      value={form.first_name}
-                      name="first_name"
-                      onChange={inputOnChange}
+                      // required
+                      // value={form.first_name}
+                      // name="first_name"
+                      // onChange={inputOnChange}
+                      {...register("first_name",{require:true})}
                     />
-                    {error.first_name && (
+                    <ErrorMessage error={error.first_name}/>
+                    {/* {error.first_name && (
                       <p className="error-text-login">{error.first_name}</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
                 <div className="col-12">
@@ -113,16 +127,18 @@ function Register() {
                     <input
                       className="form-control form-control-sm"
                       id="registerLastName"
-                      type="text"
+                      // type="text"
                       placeholder="Last Name *"
-                      required
-                      value={form.last_name}
-                      name="last_name"
-                      onChange={inputOnChange}
+                      // required
+                      // value={form.last_name}
+                      // name="last_name"
+                      // onChange={inputOnChange}
+                      {...register("last_name",{require:true})}
                     />
-                    {error.last_name && (
+                    <ErrorMessage error={error.last_name}/>
+                    {/* {error.last_name && (
                       <p className="error-text-login">{error.last_name}</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
                 <div className="col-12">
@@ -134,16 +150,18 @@ function Register() {
                     <input
                       className="form-control form-control-sm"
                       id="registerEmail"
-                      type="email"
+                      // type="email"
                       placeholder="Email Address *"
-                      required
-                      value={form.username}
-                      name="username"
-                      onChange={inputOnChange}
+                      // required
+                      // value={form.username}
+                      // name="username"
+                      // onChange={inputOnChange}
+                      {...register("username",{require:true, pattern:'email'})}
                     />
-                    {error.username && (
+                    <ErrorMessage error={error.username}/>
+                    {/* {error.username && (
                       <p className="error-text-login">{error.username}</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
                 <div className="col-12 col-md-6">
@@ -157,14 +175,17 @@ function Register() {
                       id="registerPassword"
                       type="password"
                       placeholder="Password *"
-                      required
-                      value={form.password}
-                      name="password"
-                      onChange={inputOnChange}
+                      // required
+                      // value={form.password}
+                      // name="password"
+                      // onChange={inputOnChange}
+                      {...register("password",{require:true,min: 6,
+                        max: 32,})}
                     />
-                    {error.password && (
+                    <ErrorMessage error={error.password}/>
+                    {/* {error.password && (
                       <p className="error-text-login">{error.password}</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
                 <div className="col-12 col-md-6">
@@ -181,15 +202,18 @@ function Register() {
                       id="registerPasswordConfirm"
                       type="password"
                       placeholder="Confirm Password *"
-                      required
-                      value={form.confirm_password}
-                      name="confirm_password"
-                      onChange={inputOnChange}
+                      // required
+                      // value={form.confirm_password}
+                      // name="confirm_password"
+                      // onChange={inputOnChange}
+                      {...register("confirm_password",{require:true,min: 6,
+                        max: 32,})}
                     />
                     {error?.confirm_password !== form.password && (
-                      <p className="error-text-login">
-                        {error.confirm_password}
-                      </p>
+                      <ErrorMessage error={error.confirm_password}/>
+                      // <p className="error-text-login">
+                      //   {error.confirm_password}
+                      // </p>
                     )}
                   </div>
                 </div>
@@ -223,7 +247,6 @@ function Register() {
                   <button
                     className="btn btn-sm btn-dark"
                     type="submit"
-                    onClick={onRegister}
                   >
                     {t(`Register`)}
                   </button>

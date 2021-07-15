@@ -41,6 +41,22 @@ export function registerAction(data){
         }
     };
 }
+export function updateAction(data){
+    return async (dispatch) => {
+        let res = await Auth.update(data)
+        if (res?.data) {
+            dispatch({
+                type: UPDATE,
+                payload: res.data
+            })
+        } else if (res.error) {
+            dispatch({
+                type: ERROR,
+                payload: res.error,
+            });
+        }
+    }
+}
 //   return (dispatch, state) => {
 //     userApi.login(data).then((res) => {
 //       if (res.error) {

@@ -29,11 +29,11 @@ function LogIn() {
       // },
       message: {
         username: {
-          required: "Email không được để trống ",
+          require: "Email không được để trống ",
           pattern: "Email không đúng định dạng email vd:example@gmail.com",
         },
         password: {
-          required: "Password không được để trống",
+          require: "Password không được để trống",
         },
       },
     }

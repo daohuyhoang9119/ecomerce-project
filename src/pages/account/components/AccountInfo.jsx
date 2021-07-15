@@ -1,11 +1,74 @@
-import React from "react";
+import React,{useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslate } from "../../../core/Translate";
+import { useForm,ErrorMessage  } from './../../../core/useform';
+import { updateAction } from './../../../redux/action/authAction';
+
+
 
 function AccountInfo() {
   let { t } = useTranslate();
+  let dispatch = useDispatch();
+  // let { data } = useSelector((store) => store.auth);
+
+  let {login} = useSelector((store) => store.authReducer)
+  
+  //handle day-month-year
+  let yearNow = new Date().getFullYear();
+  const [day, setDay] = useState();
+  const [month, setMonth] = useState(1);
+  const [year, setYear] = useState(yearNow);
+  let date = new Date(year, month, 0);
+  let dayArray = date.getDate();
+
+  let {register, handleSubmit, error,form} = useForm(
+    {
+      first_name: login.first_name,
+      last_name : login.last_name,
+      username: login.email,
+      gender: '',
+      password: "",
+      new_password: "",
+    },
+    {
+      message:{
+        first_name: {
+          require: "Trường này không được để trống ",
+        },
+        last_name: {
+          require: "Trường này không được để trống ",
+        },
+        username: {
+          require: "Email không được để trống ",
+          pattern: "Email không đúng định dạng",
+        },
+        password: {
+          require: "Password không được để trống",
+          
+        },
+        new_password: {
+          require: "Password không được để trống",
+        },
+      }
+    }
+  )
+
+  function handleSelectOption(e){
+    let name = e.target.name;
+    let value = e.target.value;
+
+    if(name === 'year') setYear(parseInt(value));
+    if(name === 'month') setMonth(parseInt(value));
+    if(name === 'day') setDay(parseInt(value));
+  }
+
+  function formChangeInfoSubmit(form){
+    // console.log(form);
+    dispatch(updateAction(form));
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(formChangeInfoSubmit)}>
       <div className="row">
         <div className="col-12 col-md-6">
           {/* Email */}
@@ -14,11 +77,13 @@ function AccountInfo() {
             <input
               className="form-control form-control-sm"
               id="accountFirstName"
-              type="text"
+              // type="text"
               placeholder="First Name *"
-              defaultValue="Daniel"
-              required
+              // defaultValue="Daniel"
+              // required
+              {...register("first_name",{require:true})}
             />
+            <ErrorMessage error={error.first_name}/>
           </div>
         </div>
         <div className="col-12 col-md-6">
@@ -30,9 +95,11 @@ function AccountInfo() {
               id="accountLastName"
               type="text"
               placeholder="Last Name *"
-              defaultValue="Robinson"
-              required
+              // defaultValue="Robinson"
+              // required
+              {...register("last_name",{require:true})}
             />
+            <ErrorMessage error={error.last_name}/>
           </div>
         </div>
         <div className="col-12">
@@ -45,8 +112,10 @@ function AccountInfo() {
               type="email"
               placeholder="Email Address *"
               defaultValue="user@email.com"
-              required
+              // required
+              {...register("username",{require:true, pattern:'email'})}
             />
+            <ErrorMessage error={error.username}/>
           </div>
         </div>
         <div className="col-12 col-md-6">
@@ -55,11 +124,14 @@ function AccountInfo() {
             <label htmlFor="accountPassword">{t(`Current Password *`)}</label>
             <input
               className="form-control form-control-sm"
-              id="accountPassword"
+              // id="accountPassword"
               type="password"
               placeholder="Current Password *"
-              required
+              // required
+              {...register("password",{require:true,min: 6,
+                max: 32})}
             />
+            <ErrorMessage error={error.password}/>
           </div>
         </div>
         <div className="col-12 col-md-6">
@@ -68,11 +140,17 @@ function AccountInfo() {
             <label htmlFor="AccountNewPassword">{t(`New Password *`)}</label>
             <input
               className="form-control form-control-sm"
-              id="AccountNewPassword"
+              // id="AccountNewPassword"
               type="password"
               placeholder="New Password *"
-              required
+              // required
+                {...register("new_password",{
+                  require: true,
+                  min: 6,
+                  max: 32,
+                })}
             />
+            <ErrorMessage error={error.new_password}/>
           </div>
         </div>
         <div className="col-12 col-lg-6">
@@ -90,10 +168,16 @@ function AccountInfo() {
                 <select
                   className="custom-select custom-select-sm"
                   id="accountDate"
+                  name="day"
+                  value={day}
+                  onChange={handleSelectOption}
                 >
-                  <option>10</option>
+                  {/* <option>10</option>
                   <option>11</option>
-                  <option selected>12</option>
+                  <option selected>12</option> */}
+                  {
+                     [...Array(dayArray)].map((e, i) => <option value={i + 1} key={i}>{i + 1}</option>)
+                  }
                 </select>
               </div>
               <div className="col">
@@ -104,10 +188,16 @@ function AccountInfo() {
                 <select
                   className="custom-select custom-select-sm"
                   id="accountMonth"
+                  name='month'
+                  value={month}
+                  onChange={handleSelectOption}
                 >
-                  <option>{t(`January`)}</option>
+                  {/* <option>{t(`January`)}</option>
                   <option selected>{t(`February`)}</option>
-                  <option>{t(`March`)}</option>
+                  <option>{t(`March`)}</option> */}
+                  {
+                     [...Array(12)].map((e, i) => <option value={i + 1} key={i}>{i + 1}</option>)
+                  }
                 </select>
               </div>
               <div className="col-auto">
@@ -118,10 +208,16 @@ function AccountInfo() {
                 <select
                   className="custom-select custom-select-sm"
                   id="accountYear"
+                  name='year'
+                  value={year}
+                  onChange={handleSelectOption}
                 >
-                  <option>1990</option>
+                  {/* <option>1990</option>
                   <option selected>1991</option>
-                  <option>1992</option>
+                  <option>1992</option> */}
+                  {
+                     [...Array(50)].map((e, i) => <option value={yearNow - i} key={i}>{yearNow - i}</option>)
+                  }
                 </select>
               </div>
             </div>
@@ -133,18 +229,19 @@ function AccountInfo() {
             <label>{t(`Gender`)}</label>
             <div className="btn-group-toggle" data-toggle="buttons">
               <label className="btn btn-sm btn-outline-border active">
-                <input type="radio" name="gender" defaultChecked />
+                <input type="radio" name="gender" defaultChecked/>
                 {t(`Male`)}
               </label>
               <label className="btn btn-sm btn-outline-border">
-                <input type="radio" name="gender" /> {t(`Female`)}
+                <input type="radio" name="gender" /> 
+                {t(`Female`) }
               </label>
             </div>
           </div>
         </div>
         <div className="col-12">
           {/* Button */}
-          <button className="btn btn-dark" type="submit">
+          <button className="btn btn-dark" type="submit" onS>
             {t(`Save Changes`)}
           </button>
         </div>

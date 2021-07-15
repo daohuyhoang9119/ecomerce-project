@@ -121,8 +121,8 @@ let routes = [
 
   export default routes;
   
-              {/* <PrivateRoute path="/account" component={Account} /> */}
-              {/* <Route path="/about" component={About} />
+              /* <PrivateRoute path="/account" component={Account} /> */
+              /* <Route path="/about" component={About} />
               <Route path="/checkout" component={CheckOut} />
               <Route path="/contact" component={Contact} />
               <Route path="/blog" component={Blog} />
@@ -134,4 +134,4 @@ let routes = [
               <Route path="/shipping-returns" component={ShippingReturns} />
               <Route path="/store-locator" component={Store} />
               <Route exact path="/" component={Home} />
-              <Route component={Page404} /> */}
+              <Route component={Page404} /> */
