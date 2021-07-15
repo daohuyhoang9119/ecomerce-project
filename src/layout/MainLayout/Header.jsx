@@ -205,7 +205,7 @@ function Header() {
                 {/* Toggle */}
                 <Link
                   className="nav-link"
-                  data-toggle="dropdown"
+                  // data-toggle="dropdown"
                   to = "/page-404"
                 >
                   {t("Catalog")}
@@ -214,21 +214,30 @@ function Header() {
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to="/shop">
+                <Link 
+                  className="nav-link" 
+                  // data-toggle="dropdown" 
+                  to="/shop">
                   {t("Shop")}
                 </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to="/about">
+                <Link 
+                  className="nav-link" 
+                  // data-toggle="dropdown" 
+                  to="/about">
                   {t("Pages")}
                 </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <Link className="nav-link" data-toggle="dropdown" to="/blog">
+                <Link 
+                  className="nav-link" 
+                  // data-toggle="dropdown" 
+                  to="/blog">
                   {t("Blog")}
                 </Link>
                 {/* Menu */}

@@ -9,7 +9,6 @@ import { updateAction } from './../../../redux/action/authAction';
 function AccountInfo() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
-  // let { data } = useSelector((store) => store.auth);
 
   let {login} = useSelector((store) => store.authReducer)
   
@@ -28,7 +27,7 @@ function AccountInfo() {
       username: login.email,
       gender: '',
       password: "",
-      new_password: "",
+      confirm_password: "",
     },
     {
       message:{
@@ -46,7 +45,7 @@ function AccountInfo() {
           require: "Password không được để trống",
           
         },
-        new_password: {
+        confirm_password: {
           require: "Password không được để trống",
         },
       }
@@ -63,7 +62,8 @@ function AccountInfo() {
   }
 
   function formChangeInfoSubmit(form){
-    // console.log(form);
+    console.log(form);
+    console.log('-----------');
     dispatch(updateAction(form));
   }
 
@@ -144,13 +144,13 @@ function AccountInfo() {
               type="password"
               placeholder="New Password *"
               // required
-                {...register("new_password",{
+                {...register("confirm_password",{
                   require: true,
                   min: 6,
                   max: 32,
                 })}
             />
-            <ErrorMessage error={error.new_password}/>
+            <ErrorMessage error={error.confirm_password}/>
           </div>
         </div>
         <div className="col-12 col-lg-6">
