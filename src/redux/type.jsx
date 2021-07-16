@@ -4,3 +4,7 @@ export const ERROR = "ERROR";
 export const UPDATE = "UPDATE";
 export const REGISTER = "REGISTER";
 export const REGISTER_ERROR = "REGISTER_ERROR";
+
+
+export const PRODUCT = "PRODUCT";
+export const CATEGORY = "CATEGORY";
