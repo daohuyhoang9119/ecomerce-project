@@ -1,13 +1,13 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
 export default function CategoryLeft(){
-    let dispatch = useDispatch();
+  
     let { category } = useSelector((store) => store.productReducer);
-    console.log(category);
+ 
     return (
         <div className="col-12 col-md-4 col-lg-3">
             {/* Filters */}
@@ -32,9 +32,9 @@ export default function CategoryLeft(){
                           </NavLink>
                         </li>
                         {
-                            category.map((value) => 
-                                <li className="list-styled-item">
-                                    <NavLink className="list-styled-link" >
+                            category?.map((value) => 
+                                <li className="list-styled-item" key={value.id}>
+                                    <NavLink className="list-styled-link" to={`/shop/${value.slug}`} >
                                         {value.title}
                                     </NavLink>
                                 </li>

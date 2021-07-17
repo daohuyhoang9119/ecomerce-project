@@ -1,7 +1,14 @@
-import React from "react";
+import React,{useEffect} from "react";
 import CategoryLeft from './components/CategoryLeft';
+import { useSelector, useDispatch } from "react-redux";
+import { categoryAction } from "../../redux/action/productAction";
 
 function Shop() {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(categoryAction());
+  },[])
+
   return (
     <section className="py-11">
       <div className="container">

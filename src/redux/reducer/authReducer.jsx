@@ -29,6 +29,13 @@ export default function authReducer(state = initState, action) {
         ...state,
         login: false,
       };
+    case REGISTER:
+      localStorage.setItem("data", JSON.stringify(action.payload));
+      return {
+        ...state,
+        data: action.payload,
+        
+      };
     case ERROR:
       return {
         ...state,

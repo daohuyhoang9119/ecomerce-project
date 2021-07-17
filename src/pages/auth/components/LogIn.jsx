@@ -52,7 +52,7 @@ function LogIn() {
     dispatch(loginAction(form))
   }
   // const auth = useSelector(state => state.auth);
-  console.log('render form');
+
 
   return (
     <div className="col-12 col-md-6">
