@@ -1,13 +1,30 @@
 import React,{useEffect} from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import {GET_NAME_CATEGORY} from "../../../redux/type";
+import {categoryAction} from "../../../redux/action/productAction"
+import { convertQueryToStr, convertStrToQuery } from "../../../utils";
 
 
 export default function CategoryLeft(){
-  
+    const dispatch = useDispatch();
     let { category } = useSelector((store) => store.productReducer);
- 
+
+    useEffect(()=>{
+      dispatch(categoryAction())
+    },[])
+
+    let obj = convertQueryToStr();
+
+    const handleClickCategory = (item) =>{
+      dispatch({
+        type: GET_NAME_CATEGORY,
+        payload: item,
+      })
+    }
+
+
+
     return (
         <div className="col-12 col-md-4 col-lg-3">
             {/* Filters */}
@@ -34,7 +51,10 @@ export default function CategoryLeft(){
                         {
                             category?.map((value) => 
                                 <li className="list-styled-item" key={value.id}>
-                                    <NavLink className="list-styled-link" to={`/shop/${value.slug}`} >
+                                    <NavLink className="list-styled-link" to={`/shop?${convertStrToQuery({
+                                      ...obj,
+                                      categories: value?.id,
+                                    })}`} onClick={() => handleClickCategory(value)}>
                                         {value.title}
                                     </NavLink>
                                 </li>

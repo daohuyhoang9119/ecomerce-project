@@ -1,8 +1,41 @@
 import React from "react";
 import { useTranslate } from "../../core/Translate";
+import { useForm } from './../../core/useform/useForm';
+import { ErrorMessage } from './../../core/useform/ErrorMessage';
 
 function Contact() {
   let { t } = useTranslate();
+  const {register, handleSubmit, error,form} = useForm(
+    {
+      name:'',
+      username:'',
+      title: '',
+      contact: '',
+    },{
+      message: {
+        
+        name: {
+          require: "Trường này không được để trống ",
+        },
+        username: {
+          require: "Email không được để trống ",
+          pattern: "Email không đúng định dạng",
+        },
+        title: {
+          require: "Trường này không được để trống ",
+        },
+        contact: {
+          require: "Trường này không được để trống ",
+        },
+        
+      },
+    }
+  )
+
+  function handleContact(form){
+    console.log(`Thông tin liên hê: ${form}`)
+  }
+
   return (
     <section className="pt-7 pb-12">
       <div className="container">
@@ -90,8 +123,8 @@ function Contact() {
           </div>
           <div className="col-12 col-md-8">
             {/* Form */}
-            <form>
-              {/* Email */}
+            <form onSubmit={handleSubmit(handleContact)}>
+              {/* Name */}
               <div className="form-group">
                 <label className="sr-only" htmlFor="contactName">
                   {t(`Your Name *`)}
@@ -99,10 +132,12 @@ function Contact() {
                 <input
                   className="form-control form-control-sm"
                   id="contactName"
-                  type="text"
+                  // type="text"
                   placeholder="Your Name *"
-                  required
+                  // required
+                  {...register("name",{require:true})}
                 />
+                <ErrorMessage error={error.name}/>
               </div>
               {/* Email */}
               <div className="form-group">
@@ -112,12 +147,14 @@ function Contact() {
                 <input
                   className="form-control form-control-sm"
                   id="contactEmail"
-                  type="email"
+                  // type="email"
                   placeholder="Your Email *"
-                  required
+                  // required
+                  {...register("username",{require:true, pattern:'email'})}
                 />
+                <ErrorMessage error={error.username}/>
               </div>
-              {/* Email */}
+              {/* Title */}
               <div className="form-group">
                 <label className="sr-only" htmlFor="contactTitle">
                   {t(`Title *`)}
@@ -125,12 +162,14 @@ function Contact() {
                 <input
                   className="form-control form-control-sm"
                   id="contactTitle"
-                  type="text"
+                  // type="text"
                   placeholder="Title *"
-                  required
+                  // required
+                  {...register("title",{require:true})}
                 />
+                <ErrorMessage error={error.title}/>
               </div>
-              {/* Email */}
+              {/* Contact */}
               <div className="form-group mb-7">
                 <label className="sr-only" htmlFor="contactMessage">
                   {t(`Message *`)}
@@ -140,12 +179,14 @@ function Contact() {
                   id="contactMessage"
                   rows={5}
                   placeholder="Message *"
-                  required
-                  defaultValue={""}
+                  // required
+                  // defaultValue={""}
+                  {...register("contact",{require:true})}
                 />
+                <ErrorMessage error={error.contact}/>
               </div>
               {/* Button */}
-              <button className="btn btn-dark">{t(`Send Message`)}</button>
+              <button className="btn btn-dark" type="submit">{t(`Send Message`)}</button>
             </form>
           </div>
         </div>

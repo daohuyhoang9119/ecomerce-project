@@ -129,19 +129,19 @@ function Header() {
             {/* Nav */}
             <ul className="nav navbar-nav mr-8">
               <li className="nav-item">
-                <a className="nav-link" href="./shipping-and-returns.html">
+                <Link className="nav-link" to="/shipping-returns">
                   {t("Shipping")}
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./faq.html">
+                <Link className="nav-link" to="/faq">
                   {t("FAQ")}
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./contact-us.html">
+                <Link className="nav-link" to="/contact">
                   {t("Contact")}
-                </a>
+                </Link>
               </li>
             </ul>
             {/* Nav */}
@@ -199,17 +199,6 @@ function Header() {
                 <NavLink className="nav-link" data-toggle="dropdown" to="/">
                   {t("Home")}
                 </NavLink>
-                {/* Menu */}
-              </li>
-              <li className="nav-item dropdown position-static">
-                {/* Toggle */}
-                <Link
-                  className="nav-link"
-                  // data-toggle="dropdown"
-                  to = "/page-404"
-                >
-                  {t("Catalog")}
-                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslate } from "../../core/Translate";
+import {Link} from "react-router-dom";
 
 function About() {
   let { t } = useTranslate();
@@ -102,9 +103,9 @@ function About() {
           <div className="row">
             <div className="col-12 text-center">
               {/* Button */}
-              <a className="btn btn-dark" href="shop.html">
+              <Link className="btn btn-dark" to="/shop">
                 {t(`Shop Now`)} <i className="fe fe-arrow-right ml-2" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -275,9 +276,9 @@ function About() {
           <div className="row">
             <div className="col-12 py-13 text-center">
               {/* Button */}
-              <a href="#!" className="btn btn-white px-8">
+              <Link to="/" className="btn btn-white px-8">
                 @shopper
-              </a>
+              </Link>
             </div>
           </div>
         </div>

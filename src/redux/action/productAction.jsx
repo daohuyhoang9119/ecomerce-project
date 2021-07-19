@@ -1,5 +1,5 @@
 import ProductApi from "../../service/productApi";
-import { CATEGORY } from "../type";
+import { CATEGORY, GET_VIEW_PRODUCT, PRODUCT } from "../type";
 
 export function categoryAction(){
     return async (dispatch) => {
@@ -13,4 +13,22 @@ export function categoryAction(){
         }
 
     };
+}
+export function productAction(url){
+    return async (dispatch)=>{
+        let res = await ProductApi.product(url);
+        if(res){
+            dispatch({
+                type: PRODUCT,
+                payload : res,
+            })
+        }
+    }
+}
+
+export function productViewAction(data){
+    return {
+        type: GET_VIEW_PRODUCT,
+        payload :data,
+    }
 }

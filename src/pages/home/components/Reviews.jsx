@@ -1,9 +1,19 @@
-import React from "react";
+import React,{useRef, useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslate } from "../../../core/Translate";
 
+let $ = window.$;
 function Reviews() {
   let { t } = useTranslate();
+  //slider
+  let ref = useRef();
+	
+	useEffect(() => {
+		$(ref.current).flickity({
+			pageDots: true,
+		});
+	}, []);
+
   return (
     <section className="py-12">
       <div className="container">
@@ -22,7 +32,7 @@ function Reviews() {
         <div className="row">
           <div className="col-12">
             {/* Slider */}
-            <div data-flickity='{"pageDots": true}'>
+            <div ref={ref} data-flickity='{"pageDots": true}'>
               <div className="col-12 col-sm-8 col-md-6 col-lg-4">
                 {/* Card */}
                 <div className="card-lg card border">
