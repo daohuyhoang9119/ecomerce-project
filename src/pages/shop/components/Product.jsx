@@ -1,8 +1,18 @@
-import {Link} from "react-router-dom";
+import {Link,useRouteMatch} from "react-router-dom";
+import Skeleton from '@material-ui/lab/Skeleton';
+import {useDispatch, useSelector} from "react-redux";
 
 
 export default function Product({badges,thumbnail_url, slug, name, price,real_price,rating_average}){
-    return(
+  const dispatch = useDispatch();
+  
+  let { loading } = useSelector((state) => state.productReducer);
+  
+  
+  const handleProductView = ()=>{
+
+  }  
+  return(
         <div className="col-6 col-md-4">
                 {/* Card */}
                 <div className="card mb-7">
@@ -13,18 +23,26 @@ export default function Product({badges,thumbnail_url, slug, name, price,real_pr
                   {/* Image */}
                   <div className="card-img">
                     {/* Image */}
-                    <Link className="card-img-hover" to={`/shop/${slug}`}>
-                      <img
-                        className="card-img-top card-img-back"
-                        src={thumbnail_url}
-                        alt="..."
-                      />
-                      <img
-                        className="card-img-top card-img-front"
-                        src={thumbnail_url}
-                        alt="..."
-                      />
-                    </Link>
+                    {/* <Link className="card-img-hover" to={`/shop/${slug}`}> */}
+                      {
+                        loading ? <Skeleton animation="wave" variant="rect" width={250} height={250}/> : 
+                        <>
+                          <Link className="card-img-hover" to={`/shop/${slug}`}>
+                            <img
+                              className="card-img-top card-img-back"
+                              src={thumbnail_url}
+                              alt="..."
+                            />
+                            <img
+                              className="card-img-top card-img-front"
+                              src={thumbnail_url}
+                              alt="..."
+                            />
+                          </Link>
+                        </>
+                      }
+                      
+                    {/* </Link> */}
                     {/* Actions */}
                     <div className="card-actions">
                       <span className="card-action">
@@ -57,25 +75,30 @@ export default function Product({badges,thumbnail_url, slug, name, price,real_pr
                   {/* Body */}
                   <div className="card-body px-0">
                     {/* Category */}
-                    {/* <div className="font-size-xs">
-                      <a className="text-muted" href="shop.html">
-                        Shoes
-                      </a>
-                    </div> */}
-                    <div className="font-size-xs product-rating" >
-                        <span>{rating_average} ⭐</span>
-                    </div>
-                    {/* Title */}
-                    <div className="font-weight-bold">
-                      <Link className="text-body" to={`/shop/${slug}`}>
-                        {name}
-                      </Link>
-                    </div>
-                    {/* Price */}
-                    <div className="font-weight-bold">
-                        <span className="font-size-xs text-gray-350 text-decoration-line-through">{price}</span>
-                        <span className="text-primary">{real_price}</span>
-                    </div>
+                    {
+                      loading ? <Skeleton height={60} animation="wave" /> : 
+                      <> 
+                        <div className="font-size-xs product-rating" >
+                            <span>{rating_average} ⭐</span>
+                        </div>
+                        {/* Title */}
+                        <div className="font-weight-bold">
+                          <Link className="text-body" to={`/shop/${slug}`}>
+                            {name}
+                          </Link>
+                        </div>   
+                      </>
+                    }
+                    {
+                      loading ? <Skeleton animation="wave"/> : 
+                        <> 
+                          {/* Price */}
+                          <div className="font-weight-bold">
+                              <span className="font-size-xs text-gray-350 text-decoration-line-through">{price}</span>
+                              <span className="text-primary">{real_price}</span>
+                          </div>
+                        </>
+                    }
                     {/* <div className="font-weight-bold text-muted">$129.00</div> */}
                   </div>
                 </div>

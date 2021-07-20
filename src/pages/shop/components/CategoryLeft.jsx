@@ -5,10 +5,12 @@ import {GET_NAME_CATEGORY} from "../../../redux/type";
 import {categoryAction} from "../../../redux/action/productAction"
 import { convertQueryToStr, convertStrToQuery } from "../../../utils";
 
+import Skeleton from '@material-ui/lab/Skeleton';
+
 
 export default function CategoryLeft(){
     const dispatch = useDispatch();
-    let { category } = useSelector((store) => store.productReducer);
+    let { category, loading } = useSelector((store) => store.productReducer);
 
     useEffect(()=>{
       dispatch(categoryAction())
@@ -48,6 +50,10 @@ export default function CategoryLeft(){
                             All Products
                           </NavLink>
                         </li>
+                        {
+                          loading && [...Array(15)].map((e) => <Skeleton variant="text" height={40} />)
+                        }
+
                         {
                             category?.map((value) => 
                                 <li className="list-styled-item" key={value.id}>

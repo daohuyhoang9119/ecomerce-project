@@ -5,10 +5,11 @@ import { categoryAction,productAction } from "../../redux/action/productAction";
 import {convertQueryToStr, convertStrToQuery} from "../.././utils";
 import Product from "./components/Product";
 import { Slider } from "./components/Slider";
+import { LOADING } from "../../redux/type";
 
 function Shop() {
   const dispatch = useDispatch();
-  let { product,category_name } = useSelector((store) => store.productReducer);
+  let { product,category_name, loading } = useSelector((store) => store.productReducer);
   
   let url = convertQueryToStr();
   let pageParam = convertStrToQuery(url);
@@ -16,7 +17,11 @@ function Shop() {
   useEffect( () => {  
     //category 
     // dispatch(categoryAction());
-
+    
+    //loading\
+    dispatch({
+      type: LOADING
+    })
     //product
     dispatch(productAction(pageParam));
   },[pageParam])
@@ -53,7 +58,10 @@ function Shop() {
               <div className="col-12 col-md-auto">
                 {/* Select */}
                 <select className="custom-select custom-select-xs">
-                  <option selected>Most popular</option>
+                  <option value="">--Sắp xếp--</option>
+                  <option value="real_price.-1">Giá cao</option>
+                  <option value="real_price.1">Giá thấp</option>
+                  <option value="rating_average.-1">Đánh giá cao</option>
                 </select>
               </div>
             </div>
@@ -112,8 +120,9 @@ function Shop() {
             </div>
             {/* Products */}
             <div className="row">
-              {
-                product.map((item) => 
+              {loading
+                ? [...Array(15)].map((item,index) => <Product {...item} key={index} loading={true}/> )
+                : product.map((item) => 
                   <Product {...item} key={item._id}/>
                 )
               }

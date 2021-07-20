@@ -1,8 +1,9 @@
-import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT } from "../type";
+import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING } from "../type";
 
 let initState = {
     category: [],
     product: [],
+    loading: false,
     category_name:'',
     product_detail:{},
 };
@@ -13,12 +14,19 @@ export default function productReducer(state = initState, action){
             localStorage.setItem("catagories", JSON.stringify(action.payload));
             return{
                 ...state,
+                loading:false,
                 category: action.payload,
             };
         case PRODUCT:
             return{
                 ...state,
+                loading:false,
                 product: action.payload.data,
+            };
+        case LOADING:
+            return{
+                ...state,
+                loading: true,
             };
         case GET_NAME_CATEGORY:
             return{
