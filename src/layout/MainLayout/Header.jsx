@@ -7,6 +7,13 @@ function Header() {
   function changeLanguage(lan) {
     selectLanguage(lan);
   }
+
+  function toggleSearch(e){
+    e.preventDefault();
+    // document.querySelector(".search-pop-up").style.display = "block";
+  }
+
+
   return (
     <>
       {/* NAVBAR */}
@@ -240,7 +247,7 @@ function Header() {
             {/* Nav */}
             <ul className="navbar-nav flex-row">
               <li className="nav-item">
-                <a className="nav-link" data-toggle="modal" href="#modalSearch">
+                <a className="nav-link" data-toggle="modal" href="#modalSearch" onClick={toggleSearch}>
                   <i className="fe fe-search" />
                 </a>
               </li>
@@ -250,7 +257,7 @@ function Header() {
                 </NavLink>
               </li>
               <li className="nav-item ml-lg-n4">
-                <NavLink className="nav-link" to={`/account/wishlist`}>
+                <NavLink className="nav-link" to={`/account/order`}>
                   <i className="fe fe-heart" />
                 </NavLink>
               </li>

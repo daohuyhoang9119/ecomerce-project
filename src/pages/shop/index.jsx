@@ -1,6 +1,8 @@
 import React,{useEffect} from "react";
 import CategoryLeft from './components/CategoryLeft';
 import { useSelector, useDispatch } from "react-redux";
+import {Link} from "react-router-dom";
+import { useHistory, useRouteMatch } from 'react-router';
 import { productAction } from "../../redux/action/productAction";
 import {convertQueryToObj, convertObjToQuery} from "../.././utils";
 import Product from "./components/Product";
@@ -15,6 +17,19 @@ function Shop() {
   
   let url = convertQueryToObj();
   let pageParam = convertObjToQuery(url);
+
+
+  let history = useHistory();
+	let { path } = useRouteMatch();
+
+	let obj = convertQueryToObj();
+
+  function handleSort(e){
+    obj.sort = e.target.value;
+		let url = convertObjToQuery(obj);
+		history.push(`${path}?${url}`);
+  }
+
   
   useEffect( () => {  
     //category 
@@ -47,9 +62,9 @@ function Shop() {
                 {/* Breadcrumb */}
                 <ol className="breadcrumb mb-md-0 font-size-xs text-gray-400">
                   <li className="breadcrumb-item">
-                    <a className="text-gray-400" href="index.html">
+                    <Link className="text-gray-400" to="/">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   {
                     category_name ? <li className="breadcrumb-item active">{category_name}</li> : <li className="breadcrumb-item active">Tất cả sản phẩm</li>
@@ -59,7 +74,7 @@ function Shop() {
               </div>
               <div className="col-12 col-md-auto">
                 {/* Select */}
-                <select className="custom-select custom-select-xs">
+                <select className="custom-select custom-select-xs" onChange={handleSort}>
                   <option value="">--Sắp xếp--</option>
                   <option value="real_price.-1">Giá cao</option>
                   <option value="real_price.1">Giá thấp</option>

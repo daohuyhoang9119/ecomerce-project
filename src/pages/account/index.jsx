@@ -34,7 +34,7 @@ function Account({routes}) {
             <nav className="mb-10 mb-md-0">
               <div className="list-group list-group-sm list-group-strong list-group-flush-x">
                 <NavLink
-                  className="list-group-item list-group-item-action dropright-toggle active"
+                  className="list-group-item list-group-item-action dropright-toggle "
                   // to={`${path}`}
                   to={`${match.path}/order`}
                   // exact

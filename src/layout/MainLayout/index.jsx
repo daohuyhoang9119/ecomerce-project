@@ -9,13 +9,13 @@ function MainLayout({ children,routes }) {
     <>
       <Header />
 
-      <Switch>
-        {
-          routes.map((route,i) => (
-            <RouteWithSubRoutes key={i} {...route}/>
-            ))
-        }
-      </Switch>
+        <Switch>
+          {
+            routes.map((route,i) => (
+              <RouteWithSubRoutes key={i} {...route}/>
+              ))
+          }
+        </Switch>
 
       <Footer />
     </>
