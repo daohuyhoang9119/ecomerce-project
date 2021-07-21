@@ -4,7 +4,7 @@ import { convertQueryToObj } from "../utils";
 import { convertObjToQuery } from './../utils/index';
 
 export default function Pagination({currentPage, totalPage}){
-    let match = useRouteMatch()
+    let {url}= useRouteMatch()
 
     function render(){
         if(totalPage === 1)  return [];
@@ -26,7 +26,7 @@ export default function Pagination({currentPage, totalPage}){
 
 
             arr.push(<li className={`page-item ${currentPage === i ? 'active' : ''}`} key={i}>
-                <Link className="page-link" to={`/shop?page=${i}`}>
+                <Link className="page-link" to={`${url}?${convertObjToQuery({ ...convertQueryToObj(), page: i })}`}>
                 {i}
                 </Link>
             </li>)
@@ -42,7 +42,7 @@ export default function Pagination({currentPage, totalPage}){
                 {
                     currentPage > 1 &&  (
                     <li className="page-item">
-                        <Link className="page-link page-link-arrow" to={`/shop?page=${currentPage - 1}`}>
+                        <Link className="page-link page-link-arrow" to={`${url}?${convertObjToQuery({ ...convertQueryToObj(), page: currentPage - 1 })}`}>
                             <i className="fa fa-caret-left" />
                         </Link>
                     </li> )
@@ -60,7 +60,7 @@ export default function Pagination({currentPage, totalPage}){
                     currentPage < totalPage && 
                     (
                         <li className="page-item">
-                            <Link className="page-link page-link-arrow" to={`/shop?page=${currentPage + 1}`}>
+                            <Link className="page-link page-link-arrow" to={`${url}?${convertObjToQuery({ ...convertQueryToObj(), page: currentPage + 1 })}`}>
                                 <i className="fa fa-caret-right" />
                             </Link>
                         </li>
