@@ -1,18 +1,20 @@
 import React,{useEffect} from "react";
 import CategoryLeft from './components/CategoryLeft';
 import { useSelector, useDispatch } from "react-redux";
-import { categoryAction,productAction } from "../../redux/action/productAction";
-import {convertQueryToStr, convertStrToQuery} from "../.././utils";
+import { productAction } from "../../redux/action/productAction";
+import {convertQueryToObj, convertObjToQuery} from "../.././utils";
 import Product from "./components/Product";
 import { Slider } from "./components/Slider";
 import { LOADING } from "../../redux/type";
+import Pagination from './../../components/Pagination';
 
 function Shop() {
   const dispatch = useDispatch();
-  let { product,category_name, loading } = useSelector((store) => store.productReducer);
+  let { product,category_name, loading, paginate } = useSelector((store) => store.productReducer);
+
   
-  let url = convertQueryToStr();
-  let pageParam = convertStrToQuery(url);
+  let url = convertQueryToObj();
+  let pageParam = convertObjToQuery(url);
   
   useEffect( () => {  
     //category 
@@ -128,50 +130,7 @@ function Shop() {
               }
             </div>
             {/* Pagination */}
-            <nav className="d-flex justify-content-center justify-content-md-end">
-              <ul className="pagination pagination-sm text-gray-400">
-                <li className="page-item">
-                  <a className="page-link page-link-arrow" href="#">
-                    <i className="fa fa-caret-left" />
-                  </a>
-                </li>
-                <li className="page-item active">
-                  <a className="page-link" href="#">
-                    1
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    2
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    3
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    4
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    5
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">
-                    6
-                  </a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link page-link-arrow" href="#">
-                    <i className="fa fa-caret-right" />
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <Pagination {...paginate}/> 
           </div>
         </div>
       </div>

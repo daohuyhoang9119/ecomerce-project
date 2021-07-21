@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {GET_NAME_CATEGORY} from "../../../redux/type";
 import {categoryAction} from "../../../redux/action/productAction"
-import { convertQueryToStr, convertStrToQuery } from "../../../utils";
+import { convertQueryToObj, convertObjToQuery } from "../../../utils";
 
 import Skeleton from '@material-ui/lab/Skeleton';
 
@@ -16,7 +16,7 @@ export default function CategoryLeft(){
       dispatch(categoryAction())
     },[])
 
-    let obj = convertQueryToStr();
+    let obj = convertQueryToObj();
 
     const handleClickCategory = (item) =>{
       dispatch({
@@ -51,13 +51,13 @@ export default function CategoryLeft(){
                           </NavLink>
                         </li>
                         {
-                          loading && [...Array(15)].map((e) => <Skeleton variant="text" height={40} />)
+                          loading && [...Array(15)].map((e,i) => <Skeleton variant="text" height={40} key={i}/>)
                         }
 
                         {
                             category?.map((value) => 
                                 <li className="list-styled-item" key={value.id}>
-                                    <NavLink className="list-styled-link" to={`/shop?${convertStrToQuery({
+                                    <NavLink className="list-styled-link" to={`/shop?${convertObjToQuery({
                                       ...obj,
                                       categories: value?.id,
                                     })}`} onClick={() => handleClickCategory(value)}>

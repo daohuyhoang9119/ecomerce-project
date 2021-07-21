@@ -3,6 +3,7 @@ import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING } from 
 let initState = {
     category: [],
     product: [],
+    paginate: [],
     loading: false,
     category_name:'',
     product_detail:{},
@@ -21,6 +22,7 @@ export default function productReducer(state = initState, action){
             return{
                 ...state,
                 loading:false,
+                paginate: action.payload.paginate,
                 product: action.payload.data,
             };
         case LOADING:

@@ -2,8 +2,8 @@ export function currency(number) {
   return new Intl.NumberFormat("vn").format(number) + "vnd";
 }
 
-
-export function convertQueryToStr() {
+//a=1&b=2&c=3 => {a:1, b:2, c:3}
+export function convertQueryToObj() {
 	var search = window.location.search.substring(1);
 
 	return !search
@@ -13,7 +13,8 @@ export function convertQueryToStr() {
 		  });
 }
 
-export const convertStrToQuery = function (obj) {
+//nguoc lai
+export const convertObjToQuery = function (obj) {
 	var str = [];
 	for (var p in obj)
 		if (obj.hasOwnProperty(p)) {

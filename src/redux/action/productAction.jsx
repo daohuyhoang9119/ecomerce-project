@@ -1,5 +1,5 @@
 import ProductApi from "../../service/productApi";
-import { CATEGORY, GET_VIEW_PRODUCT, PRODUCT } from "../type";
+import { CATEGORY, GET_VIEW_PRODUCT, PRODUCT,  } from "../type";
 
 export function categoryAction(){
     return async (dispatch) => {
