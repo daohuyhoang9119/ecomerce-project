@@ -1,8 +1,10 @@
 import React from "react";
 import { useTranslate } from "../../../core/Translate";
+import { Link, useRouteMatch } from 'react-router-dom';
 
 function AccountOrders() {
   let { t } = useTranslate();
+  let {url} = useRouteMatch();
 
   return (
     <>
@@ -102,12 +104,12 @@ function AccountOrders() {
               <div className="form-row">
                 <div className="col-6">
                   {/* Button */}
-                  <a
+                  <Link
                     className="btn btn-sm btn-block btn-outline-dark"
-                    href="account-order.html"
+                    to={`${url}-list`}
                   >
                     {t(`Order Details`)}
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-6">
                   {/* Button */}
@@ -189,12 +191,12 @@ function AccountOrders() {
               <div className="form-row">
                 <div className="col-6">
                   {/* Button */}
-                  <a
+                  <Link
                     className="btn btn-sm btn-block btn-outline-dark"
-                    href="account-order.html"
+                    to={`${url}-list`}
                   >
                     {t(`Order Details`)}
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-6">
                   {/* Button */}
@@ -285,12 +287,12 @@ function AccountOrders() {
               <div className="form-row">
                 <div className="col-6">
                   {/* Button */}
-                  <a
+                  <Link
                     className="btn btn-sm btn-block btn-outline-dark"
-                    href="account-order.html"
+                    to={`${url}-list`}
                   >
                     {t(`Order Details`)}
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-6">
                   {/* Button */}

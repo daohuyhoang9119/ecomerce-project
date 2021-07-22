@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import reactDom from "react-dom";
 
-export default function Search(){
+export default function ModalSearch(){
 
-    return ReactDOM.createPortal(
+    return reactDom.createPortal(
+        <>
         <div className="modal fixed-right fade " id="modalSearch" tabIndex={-1} role="dialog" aria-hidden="true">
             <div className="modal-dialog modal-dialog-vertical" role="document">
                 <div className="modal-content">
@@ -124,7 +125,8 @@ export default function Search(){
                     </div>
                 </div>
             </div>
-      </div>,
+      </div>
+      </>,
       document.getElementById("root2")
-    )
+    );
 }

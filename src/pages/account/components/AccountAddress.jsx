@@ -1,8 +1,11 @@
 import React from "react";
+import { Link,useRouteMatch } from "react-router-dom"
+
 import { useTranslate } from "../../../core/Translate";
 
 function AccountAddress() {
   let { t } = useTranslate();
+  const { url } = useRouteMatch();
 
   return (
     <div className="row">
@@ -25,12 +28,12 @@ function AccountAddress() {
             {/* Action */}
             <div className="card-action card-action-right">
               {/* Button */}
-              <a
+              <Link
                 className="btn btn-xs btn-circle btn-white-primary"
-                href="account-address-edit.html"
+                to={`${url}-edit`}
               >
                 <i className="fe fe-edit-2" />
-              </a>
+              </Link>
               {/* Button */}
               <button className="btn btn-xs btn-circle btn-white-primary">
                 <i className="fe fe-x" />
@@ -57,12 +60,12 @@ function AccountAddress() {
             {/* Action */}
             <div className="card-action card-action-right">
               {/* Button */}
-              <a
+              <Link
                 className="btn btn-xs btn-circle btn-white-primary"
-                href="account-address-edit.html"
+                to={`${url}-edit`}
               >
                 <i className="fe fe-edit-2" />
-              </a>
+              </Link>
               {/* Button */}
               <button className="btn btn-xs btn-circle btn-white-primary">
                 <i className="fe fe-x" />
@@ -73,12 +76,12 @@ function AccountAddress() {
       </div>
       <div className="col-12">
         {/* Button */}
-        <a
+        <Link
           className="btn btn-block btn-lg btn-outline-border"
-          href="account-address-edit.html"
+          to={`${url}-edit`}
         >
           {t(`Add Address`)} <i className="fe fe-plus" />
-        </a>
+        </Link>
       </div>
     </div>
   );

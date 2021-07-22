@@ -19,6 +19,10 @@ import ShippingReturns from "./pages/shipping-and-returns";
 import Shop from "./pages/shop";
 import ShoppingCart from "./pages/shopping-cart";
 import Store from "./pages/store";
+import OrderCompleted from './pages/order-completed/index';
+import AccountAddressEdit from './pages/account/components/AccountAddressEdit';
+import AccountPaymentMethod from "./pages/account/components/AccountPaymentMethod";
+import AccountOrderList from './pages/account/components/AccountOrderList';
 
 let routes = [
   {
@@ -40,6 +44,18 @@ let routes = [
           {
             path:'/account/payment',
             component: AccountPayment
+          },
+          {
+            path: "/account/address-edit",
+            component: AccountAddressEdit,
+          },
+          {
+            path: "/account/payment-method",
+            component: AccountPaymentMethod,
+          },
+          {
+            path: "/account/order-list",
+            component: AccountOrderList,
           },
           {
             path:'/account/wishlist',
@@ -83,6 +99,10 @@ let routes = [
       {
         path:'/shop',
         component: Shop
+      },
+      {
+        path:'/order-completed',
+        component: OrderCompleted
       },
       {
         path:'/shopping-cart',

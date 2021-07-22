@@ -1,8 +1,10 @@
 import React from "react";
 import { useTranslate } from "../../../core/Translate";
+import { useRouteMatch, Link } from "react-router-dom";
 
 function AccountPayment() {
   let { t } = useTranslate();
+  const { url } = useRouteMatch();
 
   return (
     <div className="row">
@@ -32,12 +34,12 @@ function AccountPayment() {
             {/* Action */}
             <div className="card-action card-action-right">
               {/* Button */}
-              <a
+              <Link
                 className="btn btn-xs btn-circle btn-white-primary"
-                href="account-payment-edit.html"
+                to={`${url}-method`}
               >
                 <i className="fe fe-edit-2" />
-              </a>
+              </Link>
               {/* Button */}
               <button className="btn btn-xs btn-circle btn-white-primary">
                 <i className="fe fe-x" />
@@ -48,12 +50,12 @@ function AccountPayment() {
       </div>
       <div className="col-12">
         {/* Button */}
-        <a
+        <Link
           className="btn btn-block btn-lg btn-outline-border"
-          href="account-payment-edit.html"
+          to={`${url}-method`}
         >
           {t("Add Payment Method")} <i className="fe fe-plus" />
-        </a>
+        </Link>
       </div>
     </div>
   );

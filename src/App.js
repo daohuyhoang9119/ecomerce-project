@@ -5,8 +5,6 @@ import { useParams } from "react-router";
 //css
 import "./assets/style/custom.scss";
 
-
-
 // redux
 import store from "./redux";
 

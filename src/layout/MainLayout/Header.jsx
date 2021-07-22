@@ -203,9 +203,9 @@ function Header() {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item dropdown">
                 {/* Toggle */}
-                <NavLink className="nav-link" data-toggle="dropdown" to="/">
+                <Link className="nav-link" data-toggle="dropdown" to="/">
                   {t("Home")}
-                </NavLink>
+                </Link>
                 {/* Menu */}
               </li>
               <li className="nav-item dropdown">
@@ -247,7 +247,7 @@ function Header() {
             {/* Nav */}
             <ul className="navbar-nav flex-row">
               <li className="nav-item">
-                <a className="nav-link" data-toggle="modal" href="#modalSearch" onClick={toggleSearch}>
+                <a className="nav-link" data-toggle="modal" href="#modalSearch" >
                   <i className="fe fe-search" />
                 </a>
               </li>
