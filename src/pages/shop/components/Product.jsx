@@ -1,20 +1,22 @@
-import {Link,useRouteMatch} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
 
+import {addCart} from "../../../redux/action/cartAction";
 
-export default function Product({badges,thumbnail_url, slug, name, price,real_price,rating_average}){
+export default function Product(props){
   const dispatch = useDispatch();
-  
+
+  let {badges,thumbnail_url, slug, name, price,real_price,rating_average} = props;
+
   let { loading } = useSelector((state) => state.productReducer);
   
   
-  const handleProductView = ()=>{
-
-  }
-  
-  const handleAddToCart = () =>{
+  const handleAddToCart = (e) =>{
+    e.preventDefault();
     console.log('oke');
+
+    dispatch(addCart({...props}));
   }
   return(
         <div className="col-6 col-md-4">

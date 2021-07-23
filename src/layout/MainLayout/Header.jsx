@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslate } from "../../core/Translate";
 import { NavLink, Link } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 function Header() {
   let { t, selectLanguage, language } = useTranslate();
@@ -8,11 +9,7 @@ function Header() {
     selectLanguage(lan);
   }
 
-  function toggleSearch(e){
-    e.preventDefault();
-    // document.querySelector(".search-pop-up").style.display = "block";
-  }
-
+  const { num } = useSelector(state => state.cartReducer); 
 
   return (
     <>
@@ -267,7 +264,7 @@ function Header() {
                   data-toggle="modal"
                   href="#modalShoppingCart"
                 >
-                  <span data-cart-items={2}>
+                  <span data-cart-items={num}>
                     <i className="fe fe-shopping-cart" />
                   </span>
                 </a>

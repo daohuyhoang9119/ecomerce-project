@@ -1,8 +1,10 @@
 import React from "react";
 import {useTranslate} from "../core/Translate";
+import { useDispatch } from 'react-redux';
 
-export default function ModalCartItem() {
+export default function ModalCartItem(props) {
   let { t } = useTranslate();
+  const dispatch = useDispatch();
   return (
     <li className="list-group-item">
       <div className="row align-items-center">
@@ -10,7 +12,7 @@ export default function ModalCartItem() {
           {/* Image */}
           <a href="product.html">
             <img
-              src="/img/products/product-10.jpg"
+              src={props.thumbnail_url}
               alt="..."
               className="img-fluid"
             />
@@ -20,12 +22,12 @@ export default function ModalCartItem() {
           {/* Title */}
           <div className="d-flex mb-2 font-weight-bold">
             <a className="text-body" href="product.html">
-              name
+              {props.name}
             </a>{" "}
-            <span className="ml-auto">price</span>
+            <span className="ml-auto">{props.real_price} VND</span>
           </div>
           {/* Text */}
-          <p className="mb-7 font-size-sm text-muted">{t("Color: Brown")} </p>
+          {/* <p className="mb-7 font-size-sm text-muted">{t("Color: Brown")} </p> */}
           {/*Footer */}
           <div className="d-flex align-items-center">
             {/* Select */}
