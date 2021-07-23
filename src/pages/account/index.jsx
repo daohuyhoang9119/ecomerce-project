@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useTranslate } from "../../core/Translate";
 
 
-import { logout } from "../../redux/reducer/authReducer";
 import { RouteWithSubRoutes } from "../../core/routerConfig";
 import { logoutAction } from "../../redux/action/authAction";
 

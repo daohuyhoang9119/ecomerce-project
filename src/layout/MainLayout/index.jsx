@@ -3,6 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Switch } from 'react-router-dom';
 import { RouteWithSubRoutes } from './../../core/routerConfig';
+import ModalSearch from "../../components/ModalSearch";
+import { ModalCart } from "../../components/ModalCart";
 
 function MainLayout({ children,routes }) {
   return (
@@ -16,7 +18,8 @@ function MainLayout({ children,routes }) {
               ))
           }
         </Switch>
-
+        <ModalSearch />
+        <ModalCart />
       <Footer />
     </>
   );

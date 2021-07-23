@@ -11,7 +11,11 @@ export default function Product({badges,thumbnail_url, slug, name, price,real_pr
   
   const handleProductView = ()=>{
 
-  }  
+  }
+  
+  const handleAddToCart = () =>{
+    console.log('oke');
+  }
   return(
         <div className="col-6 col-md-4">
                 {/* Card */}
@@ -58,6 +62,7 @@ export default function Product({badges,thumbnail_url, slug, name, price,real_pr
                         <button
                           className="btn btn-xs btn-circle btn-white-primary"
                           data-toggle="button"
+                          onClick={handleAddToCart}
                         >
                           <i className="fe fe-shopping-cart" />
                         </button>
