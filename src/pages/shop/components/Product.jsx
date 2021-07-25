@@ -14,8 +14,6 @@ export default function Product(props){
   
   const handleAddToCart = (e) =>{
     e.preventDefault();
-    console.log('oke');
-
     dispatch(addCart({...props}));
   }
   return(

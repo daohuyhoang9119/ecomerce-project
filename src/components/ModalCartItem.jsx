@@ -2,9 +2,19 @@ import React from "react";
 import {useTranslate} from "../core/Translate";
 import { useDispatch } from 'react-redux';
 
+import {removeCart,decrease,increase} from "../redux/action/cartAction"
+
 export default function ModalCartItem(props) {
   let { t } = useTranslate();
   const dispatch = useDispatch();
+
+  function handleRemoveCart(e){
+    console.log('vao phan xoa');
+    e.preventDefault();
+    dispatch(removeCart(props._id))
+  } 
+
+
   return (
     <li className="list-group-item">
       <div className="row align-items-center">
@@ -31,12 +41,30 @@ export default function ModalCartItem(props) {
           {/*Footer */}
           <div className="d-flex align-items-center">
             {/* Select */}
-            <input
-              value='1'
-              className="custom-select custom-select-xxs w-auto"
-            />
+            <div className="add">
+              <button
+                  className="plus"
+                  onClick={() => {
+                    dispatch(decrease(props._id));
+                  }}
+                >
+                  -
+              </button>
+              <input
+                value={props.numCart}
+                className="custom-select custom-select-xxs w-auto"
+              />
+              <button
+                className="minus"
+                onClick={() => {
+                  dispatch(increase(props._id));
+                }}
+              >
+                +
+              </button>
+            </div>
             {/* Remove */}
-            <a className="font-size-xs text-gray-400 ml-auto" href="#!">
+            <a className="font-size-xs text-gray-400 ml-auto" href="#!" onClick={handleRemoveCart}>
               <i className="fe fe-x" /> {t("Remove")}
             </a>
           </div>
@@ -45,3 +73,5 @@ export default function ModalCartItem(props) {
     </li>
   );
 }
+
+//dispatch(removeCart(props._id))

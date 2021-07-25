@@ -12,7 +12,7 @@ function TopFlickity() {
           {/* Item */}
           <div
             className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover"
-            style={{ backgroundImage: "url(/img/covers/cover-1.jpg)" }}
+            style={{ backgroundImage: "url(/img/covers/laptop.jpg)" }}
           >
             <div
               className="card bg-dark-5 bg-hover text-white text-center"
@@ -20,12 +20,12 @@ function TopFlickity() {
             >
               <div className="card-body mt-auto mb-n11 py-8">
                 {/* Heading */}
-                <h1 className="mb-0 font-weight-bolder">Women</h1>
+                <h1 className="mb-0 font-weight-bolder">Laptop</h1>
               </div>
               <div className="card-body mt-auto py-8">
                 {/* Button */}
-                <NavLink className="btn btn-white stretched-link" to="/shop">
-                  Shop Women <i className="fe fe-arrow-right ml-2" />
+                <NavLink className="btn btn-white stretched-link" to="/shop?categories=1846">
+                  Shop Laptop <i className="fe fe-arrow-right ml-2" />
                 </NavLink>
               </div>
             </div>
@@ -33,7 +33,7 @@ function TopFlickity() {
           {/* Card */}
           <div
             className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover"
-            style={{ backgroundImage: "url(/img/covers/cover-2.jpg)" }}
+            style={{ backgroundImage: "url(/img/covers/camera.jpg)" }}
           >
             <div
               className="card bg-dark-5 bg-hover text-white text-center"
@@ -41,12 +41,12 @@ function TopFlickity() {
             >
               <div className="card-body mt-auto mb-n11 py-8">
                 {/* Heading */}
-                <h1 className="mb-0 font-weight-bolder">Men</h1>
+                <h1 className="mb-0 font-weight-bolder">Camera</h1>
               </div>
               <div className="card-body mt-auto py-8">
                 {/* Button */}
-                <NavLink className="btn btn-white stretched-link" to="/shop">
-                  Shop Men <i className="fe fe-arrow-right ml-2" />
+                <NavLink className="btn btn-white stretched-link" to="/shop?categories=1801">
+                  Shop Camera <i className="fe fe-arrow-right ml-2" />
                 </NavLink>
               </div>
             </div>
@@ -54,7 +54,7 @@ function TopFlickity() {
           {/* Card */}
           <div
             className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover"
-            style={{ backgroundImage: "url(/img/covers/cover-3.jpg)" }}
+            style={{ backgroundImage: "url(/img/covers/motor.jpg)" }}
           >
             <div
               className="card bg-dark-5 bg-hover text-white text-center"
@@ -62,12 +62,12 @@ function TopFlickity() {
             >
               <div className="card-body mt-auto mb-n11 py-8">
                 {/* Heading */}
-                <h1 className="mb-0 font-weight-bolder">Kids</h1>
+                <h1 className="mb-0 font-weight-bolder">Motor</h1>
               </div>
               <div className="card-body mt-auto py-8">
                 {/* Button */}
-                <NavLink className="btn btn-white stretched-link" to="/shop">
-                  Shop Kids <i className="fe fe-arrow-right ml-2" />
+                <NavLink className="btn btn-white stretched-link" to="/shop?categories=8594">
+                  Shop Motors <i className="fe fe-arrow-right ml-2" />
                 </NavLink>
               </div>
             </div>

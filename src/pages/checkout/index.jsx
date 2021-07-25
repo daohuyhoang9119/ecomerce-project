@@ -1,8 +1,14 @@
 import React from "react";
 import { useTranslate } from "../../core/Translate";
+import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import ListCartItem from "./components/ListCartItem";
 
 function CheckOut() {
   let { t } = useTranslate();
+  const ship = 20000;
+  const {listCart, num, amount} = useSelector(state => state.cartReducer); 
+
   return (
     <>
       <section className="pt-7 pb-12">
@@ -14,9 +20,9 @@ function CheckOut() {
               {/* Subheading */}
               <p className="mb-10">
                 {t(`Already have an account?`)}{" "}
-                <a className="font-weight-bold text-reset" href="#!">
+                <Link className="font-weight-bold text-reset" to="/auth">
                   {t(`Click here to login`)}
-                </a>
+                </Link>
               </p>
             </div>
           </div>
@@ -540,68 +546,24 @@ function CheckOut() {
             </div>
             <div className="col-12 col-md-5 col-lg-4 offset-lg-1">
               {/* Heading */}
-              <h6 className="mb-7">{t(`Order Items (3)`)}</h6>
+              <h6 className="mb-7">{t(`Order Items (${num})`)}</h6>
               {/* Divider */}
               <hr className="my-7" />
               {/* List group */}
               <ul className="list-group list-group-lg list-group-flush-y list-group-flush-x mb-7">
-                <li className="list-group-item">
-                  <div className="row align-items-center">
-                    <div className="col-4">
-                      {/* Image */}
-                      <a href="product.html">
-                        <img
-                          src="/img/products/product-6.jpg"
-                          alt="..."
-                          className="img-fluid"
-                        />
-                      </a>
+                {
+                  num <= 0 ? (
+                    <div class="modal-body flex-grow-0 my-auto">
+                      <h6 class="mb-7 text-center">Your cart is empty 😞</h6>
+      
+                      <Link class="btn btn-block btn-outline-dark" to="/shop">
+                        Continue Shopping
+                      </Link>
                     </div>
-                    <div className="col">
-                      {/* Title */}
-                      <p className="mb-4 font-size-sm font-weight-bold">
-                        <a className="text-body" href="product.html">
-                          {t(`Cotton floral print Dress`)}
-                        </a>{" "}
-                        <br />
-                        <span className="text-muted">$40.00</span>
-                      </p>
-                      {/* Text */}
-                      <div className="font-size-sm text-muted">
-                        Size: M <br />
-                        Color: Red
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li className="list-group-item">
-                  <div className="row align-items-center">
-                    <div className="col-4">
-                      {/* Image */}
-                      <a href="product.html">
-                        <img
-                          src="/img/products/product-10.jpg"
-                          alt="..."
-                          className="img-fluid"
-                        />
-                      </a>
-                    </div>
-                    <div className="col">
-                      {/* Title */}
-                      <p className="mb-4 font-size-sm font-weight-bold">
-                        <a className="text-body" href="product.html">
-                          {t(`Suede cross body Bag`)}
-                        </a>{" "}
-                        <br />
-                        <span className="text-muted">$49.00</span>
-                      </p>
-                      {/* Text */}
-                      <div className="font-size-sm text-muted">
-                        {t(`Color: Brown`)}
-                      </div>
-                    </div>
-                  </div>
-                </li>
+                  ) : (
+                    listCart.map((e, i) => <ListCartItem key={e._id} {...e}/>)
+                  )
+                }
               </ul>
               {/* Card */}
               <div className="card mb-9 bg-light">
@@ -609,19 +571,19 @@ function CheckOut() {
                   <ul className="list-group list-group-sm list-group-flush-y list-group-flush-x">
                     <li className="list-group-item d-flex">
                       <span>{t(`Subtotal`)}</span>{" "}
-                      <span className="ml-auto font-size-sm">$89.00</span>
+                      <span className="ml-auto font-size-sm">{amount} VNĐ</span>
                     </li>
                     <li className="list-group-item d-flex">
                       <span>{t(`Tax`)}</span>{" "}
-                      <span className="ml-auto font-size-sm">$00.00</span>
+                      <span className="ml-auto font-size-sm">0 VND</span>
                     </li>
                     <li className="list-group-item d-flex">
                       <span>{t(`Shipping`)}</span>{" "}
-                      <span className="ml-auto font-size-sm">$8.00</span>
+                      <span className="ml-auto font-size-sm">{ship} VND</span>
                     </li>
                     <li className="list-group-item d-flex font-size-lg font-weight-bold">
                       <span>{t(`Total`)}</span>{" "}
-                      <span className="ml-auto">$97.00</span>
+                      <span className="ml-auto">{amount + ship} VND</span>
                     </li>
                   </ul>
                 </div>

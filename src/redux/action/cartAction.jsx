@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_PRODUCT_FROM_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
+import {ADD_TO_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
 
 export function addCart(cart) {
     return {
@@ -9,7 +9,7 @@ export function addCart(cart) {
 
 export function removeCart(id){
     return {
-        type: REMOVE_PRODUCT_FROM_CART,
+        type: REMOVE_CART,
         payload: id,
     };
 }

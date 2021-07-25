@@ -63,11 +63,9 @@ const Auth = {
     if(res.status === 200){
       return res.json();
     }
-    if(res.status === 403){
-      console.log('run');
+    if(res.status === 403){     
       await Auth.refreshToken();
       let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
-      console.log(token);
       return await fetch(`http://cfd-reactjs.herokuapp.com/update-profile`, {
         method: "POST",
         body: JSON.stringify(data),

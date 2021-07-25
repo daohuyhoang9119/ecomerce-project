@@ -1,9 +1,20 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import { useTranslate } from "../core/Translate";
+import {Link} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import ModalSearchInput from "./ModalSearchInput";
+
 
 export default function ModalSearch() {
   let { t } = useTranslate();
+
+
+  function handleSearch(newSearchValue){
+    console.log(`New search value : ${newSearchValue}`);
+  }
+
+
   return ReactDOM.createPortal(
     <div
       className="modal fixed-right fade"
@@ -29,31 +40,7 @@ export default function ModalSearch() {
           </div>
           {/* Body: Form */}
           <div className="modal-body">
-            <form>
-              <div className="form-group">
-                <label className="sr-only" htmlFor="modalSearchCategories">
-                  {t("Categories:")}
-                </label>
-                <select className="custom-select" id="modalSearchCategories">
-                  <option selected>{t("All Categories")}</option>
-                  <option>{t("Women")}</option>
-                  <option>{t("Men")}</option>
-                  <option>{t("Kids")}</option>
-                </select>
-              </div>
-              <div className="input-group input-group-merge">
-                <input
-                  className="form-control"
-                  type="search"
-                  placeholder="Search"
-                />
-                <div className="input-group-append">
-                  <button className="btn btn-outline-border" type="submit">
-                    <i className="fe fe-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
+            <ModalSearchInput onSubmit={handleSearch} />
           </div>
           {/* Body: Results (add `.d-none` to disable it) */}
           <div className="modal-body border-top font-size-sm">
@@ -161,9 +148,9 @@ export default function ModalSearch() {
               </div>
             </div>
             {/* Button */}
-            <a className="btn btn-link px-0 text-reset" href="./shop.html">
+            <Link className="btn btn-link px-0 text-reset" to="/shop">
               View All <i className="fe fe-arrow-right ml-2" />
-            </a>
+            </Link>
           </div>
           {/* Body: Empty (remove `.d-none` to disable it) */}
           <div className="d-none modal-body">

@@ -7,6 +7,7 @@ let initState = {
     loading: false,
     category_name:'',
     product_detail:{},
+    dataSearch: {},
 };
 
 export default function productReducer(state = initState, action){
@@ -40,6 +41,13 @@ export default function productReducer(state = initState, action){
                 ...state,
                 product_detail: action.payload,
             }
+        case "loadingHome":
+            return {
+                ...state,
+                loading: false,
+                dataSearch: action.payload,
+            };
+
         default: {
             return state;
         }
