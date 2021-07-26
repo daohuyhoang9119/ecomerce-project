@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
+import {ADD_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
 
 const listCart = JSON.parse(localStorage.getItem("cart")) || [];
 let num = listCart.length;
@@ -13,7 +13,7 @@ let initState = {
 export default function cartReducer(state = initState, action){
     
     switch(action.type){
-        case ADD_TO_CART:{
+        case ADD_CART:{
            
             let { listCart, amount, num } = state;
             const index = listCart.findIndex((e) => e._id === action.payload._id);

@@ -5,6 +5,7 @@ import { Switch } from 'react-router-dom';
 import { RouteWithSubRoutes } from './../../core/routerConfig';
 import ModalSearch from "../../components/ModalSearch";
 import { ModalCart } from "../../components/ModalCart";
+import ModalProduct from "../../components/ModalProduct";
 
 function MainLayout({ children,routes }) {
   return (
@@ -18,6 +19,7 @@ function MainLayout({ children,routes }) {
               ))
           }
         </Switch>
+        <ModalProduct />
         <ModalSearch />
         <ModalCart />
       <Footer />

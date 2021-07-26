@@ -3,6 +3,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
 
 import {addCart} from "../../../redux/action/cartAction";
+import { productViewAction } from './../../../redux/action/productAction';
 
 export default function Product(props){
   const dispatch = useDispatch();
@@ -11,11 +12,21 @@ export default function Product(props){
 
   let { loading } = useSelector((state) => state.productReducer);
   
-  
+  const handleViewProduct = (e) =>{
+    e.preventDefault();
+    dispatch(productViewAction({...props}))
+  }
+
+
+
+
   const handleAddToCart = (e) =>{
     e.preventDefault();
     dispatch(addCart({...props}));
   }
+
+
+
   return(
         <div className="col-6 col-md-4">
                 {/* Card */}
@@ -54,6 +65,7 @@ export default function Product(props){
                           className="btn btn-xs btn-circle btn-white-primary"
                           data-toggle="modal"
                           data-target="#modalProduct"
+                          onClick={handleViewProduct}
                         >
                           <i className="fe fe-eye" />
                         </button>

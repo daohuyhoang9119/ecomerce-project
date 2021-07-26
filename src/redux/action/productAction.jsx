@@ -27,6 +27,7 @@ export function productAction(url){
 }
 
 export function productViewAction(data){
+    console.log(data);
     return {
         type: GET_VIEW_PRODUCT,
         payload :data,

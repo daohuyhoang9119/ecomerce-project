@@ -1,8 +1,8 @@
-import {ADD_TO_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
+import {ADD_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
 
 export function addCart(cart) {
     return {
-      type: ADD_TO_CART,
+      type: ADD_CART,
       payload: cart,
     };
 }

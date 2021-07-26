@@ -1,14 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import {useTranslate } from "../../../core/Translate";
+
 function TopSellers() {
+  let {t} = useTranslate();
   return (
     <section className="py-12">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 col-xl-6">
             {/* Heading */}
-            <h2 className="mb-4 text-center">Top month Sellers</h2>
+            <h2 className="mb-4 text-center">{t(`Top month Sellers`)}</h2>
             {/* Nav */}
             <div className="nav justify-content-center mb-10">
               <a
@@ -16,13 +19,13 @@ function TopSellers() {
                 href="#topSellersTab"
                 data-toggle="tab"
               >
-                Women
+                Laptop
               </a>
               <a className="nav-link" href="#topSellersTab" data-toggle="tab">
-                Men
+                Camera
               </a>
               <a className="nav-link" href="#topSellersTab" data-toggle="tab">
-                Kids
+                Motor
               </a>
             </div>
           </div>
