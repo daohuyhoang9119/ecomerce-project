@@ -94,9 +94,5 @@ export default function cartReducer(state = initState, action){
         }
         default:
             return state;
-
-
-
-
     }
 }

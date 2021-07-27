@@ -18,3 +18,7 @@ export const ADD_CART = 'ADD_CART';
 export const REMOVE_CART = 'REMOVE_CART';
 export const INCREASE_PRODUCT = 'INCREASE_PRODUCT';
 export const DECREASE_PRODUCT = 'DECREASE_PRODUCT';
+
+//user
+export const ADD_WISHLIST = 'ADD_WISHLIST';
+export const REMOVE_WISHLIST = 'REMOVE_WISHLIST';

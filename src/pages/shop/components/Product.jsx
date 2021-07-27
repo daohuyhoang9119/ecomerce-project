@@ -2,8 +2,9 @@ import {Link} from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
 
-import {addCart} from "../../../redux/action/cartAction";
+import { addCart } from "../../../redux/action/cartAction";
 import { productViewAction } from './../../../redux/action/productAction';
+import { addWishList } from './../../../redux/action/userAction';
 
 export default function Product(props){
   const dispatch = useDispatch();
@@ -12,11 +13,16 @@ export default function Product(props){
 
   let { loading } = useSelector((state) => state.productReducer);
   
-  const handleViewProduct = (e) =>{
+  const handleViewProduct = (e) => {
     e.preventDefault();
     dispatch(productViewAction({...props}))
   }
 
+  const handleAddWishList = (e) => {
+    e.preventDefault();
+    
+    dispatch(addWishList({...props}))
+  }
 
 
 
@@ -24,8 +30,6 @@ export default function Product(props){
     e.preventDefault();
     dispatch(addCart({...props}));
   }
-
-
 
   return(
         <div className="col-6 col-md-4">
@@ -83,6 +87,7 @@ export default function Product(props){
                         <button
                           className="btn btn-xs btn-circle btn-white-primary"
                           data-toggle="button"
+                          onClick={handleAddWishList}
                         >
                           <i className="fe fe-heart" />
                         </button>

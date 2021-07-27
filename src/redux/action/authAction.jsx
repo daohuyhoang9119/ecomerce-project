@@ -57,6 +57,9 @@ export function updateAction(data){
         }
     }
 }
+
+
+
 //   return (dispatch, state) => {
 //     userApi.login(data).then((res) => {
 //       if (res.error) {

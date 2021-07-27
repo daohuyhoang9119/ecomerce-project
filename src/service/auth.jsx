@@ -4,7 +4,6 @@ const Auth = {
 
   async refreshToken() {
     let {refreshToken} = JSON.parse(localStorage.getItem("token"));
-    console.log(refreshToken);
     let res = await fetch(`http://cfd-reactjs.herokuapp.com/elearning/v4/refresh-token`, {
       method: "POST",
       body: JSON.stringify({
@@ -45,8 +44,6 @@ const Auth = {
   },
 
   async update(data) {
-    console.log(data);
-    // let token = JSON.parse(localStorage.getItem("login")?.token?.accessToken);
     let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
 
     let res =  await fetch(`http://cfd-reactjs.herokuapp.com/update-profile`, {
@@ -57,8 +54,6 @@ const Auth = {
         Authorization: `Bearer ${token}`,
       },
     });
-
-    console.log(res.status);
 
     if(res.status === 200){
       return res.json();
@@ -75,21 +70,35 @@ const Auth = {
         },
       }).then((res) => res.json());
     }
-
-    // .then((res) =>
-    //   tokenHandle(res, () => {
-    //     let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
-    //     return fetch(`${domain}/elearning/v4/profile/update`, {
-    //       method: "POST",
-    //       body: JSON.stringify(data),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     }).then((res) => res.json());
-    //   })
-    // );
   },
+
+  // async wishlist(data){
+  //   let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
+
+  //   let res =  await fetch(`http://cfd-reactjs.herokuapp.com/ecommerce/v1/profile/wishlist`, {
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   });
+  //   if(res.status === 200){
+  //     return res.json();
+  //   }
+  //   if(res.status === 403){     
+  //     await Auth.refreshToken();
+  //     let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
+  //     return await fetch(`http://cfd-reactjs.herokuapp.com/ecommerce/v1/profile/wishlist`, {
+  //       method: "POST",
+  //       body: JSON.stringify(data),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     }).then((res) => res.json());
+  //   }
+  // }
 };
 
 // export async function tokenHandle(res, callBack) {

@@ -1,13 +1,6 @@
-import Api from "../core/Api";
+const userApi = {
 
-export default {
-  login: (data) => {
-    return Api.post("login", data);
-  },
-  register: (data) => {
-    return Api.post("register", data);
-  },
-  update: (data) => {
-    return Api.token().post("update-profile", data);
-  },
-};
+    create(data){
+        return fetch('http://cfd-reactjs.herokuapp.com/ecommerce/v1/profile/wishlist',{}).then(res => res.json(data));
+    }
+}

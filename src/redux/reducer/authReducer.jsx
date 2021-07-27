@@ -47,6 +47,8 @@ export default function authReducer(state = initState, action) {
         ...state,
         login: action.payload,
       };
+
+    
     default:
       return state;
     }
