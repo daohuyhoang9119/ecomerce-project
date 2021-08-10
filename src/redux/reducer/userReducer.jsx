@@ -13,7 +13,6 @@ export default function userReducer(state = initState, action){
            let item = action.payload;
 
            wishList.push(item);
-           console.log('vao reducer');
            console.log(wishList);
            localStorage.setItem("WishList", JSON.stringify(wishList));
            return {
@@ -27,7 +26,6 @@ export default function userReducer(state = initState, action){
             
             const index = wishList.findIndex((e) => e._id === action.payload._id);            
             wishList.splice(index, 1);
-            // wishList.filter((item) => )
             localStorage.setItem("WishList", JSON.stringify(wishList));
             return {
                 ...state,

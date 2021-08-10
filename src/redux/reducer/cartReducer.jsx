@@ -20,8 +20,7 @@ export default function cartReducer(state = initState, action){
             if (index !== -1) {
                 //index !== -1 => Bị trùng thì nó cộng dồn vào
                 action.payload.numCart = action.payload.num || 1;
-                listCart[index].numCart =
-                listCart[index].numCart + action.payload.numCart;
+                listCart[index].numCart = listCart[index].numCart + action.payload.numCart;
                 amount = amount + listCart[index].real_price * action.payload.numCart;
             } else {
                 //index === -1 => không có bị trùng thì nó add vào

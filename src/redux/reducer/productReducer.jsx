@@ -8,7 +8,7 @@ let initState = {
     category_name:'',
     product_detail:{},
     dataSearch: {},
-    wishlist: [],
+    
 };
 
 export default function productReducer(state = initState, action){

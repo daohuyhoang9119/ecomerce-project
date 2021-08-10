@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router";
 
 function Auth() {
-  const auth = useSelector((state) => state.auth);
-  // if (auth.login) return <Redirect to="/" />;
+  const { login } = useSelector((state) => state.authReducer);
+  if (login) return <Redirect to="/account/info" />;
 
   return (
     <section className="py-12">
