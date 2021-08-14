@@ -10,7 +10,7 @@ export default function ModalSearchInput(props){
     const dispatch = useDispatch();
     
     //category
-    let { category } = useSelector((store) => store.productReducer);
+    let { categories } = useSelector((store) => store.productReducer);
   
     useEffect(()=>{
       dispatch(categoryAction())
@@ -52,7 +52,7 @@ export default function ModalSearchInput(props){
                     <option>{t("Men")}</option>
                     <option>{t("Kids")}</option> */}
                     {
-                    category.map((item) => (
+                    categories.map((item) => (
                         <option>{item.title}</option>
                     ))
                     }

@@ -1,5 +1,6 @@
-import { domain } from "../service/config";
-class Api {
+import { endpoint } from "../service/config";
+
+export  class Api {
   acessToken;
 
   useToken = false;
@@ -10,10 +11,10 @@ class Api {
   }
 
   json(res) {
-    if ((res.status = 200)) {
+    if ((res.status === 200)) {
       return res.json();
     }
-    if (res.state === 403) {
+    if (res.status === 403) {
     }
 
     return new Promise((resolve, reject) => {});
@@ -21,7 +22,7 @@ class Api {
   async refreshToken() {
     let refreshToken = JSON.parse(localStorage.getItem("token"))?.refreshToken;
 
-    let res = await fetch(`${domain}elearning/v4/refresh-token`, {
+    let res = await fetch(`${endpoint}elearning/v4/refresh-token`, {
       method: "POST",
       body: JSON.stringify({
         refreshToken,
@@ -56,14 +57,16 @@ class Api {
 
   async request(url, options) {
     let response = await fetch(url, options);
-    if ((response.status = 200)) {
+   
+    if (response.status === 200) {
       return response;
     }
 
-    if ((response.status = 403)) {
+    console.log('vo ham request');
+    if (response.status === 403) {
       await this.refreshToken();
       let token = JSON.parse(localStorage.getItem("token"));
-      if (token?.acessToken) {
+      if (token?.accessToken) {
         options.headers.Authorization = `Bearer ${token.accessToken}`;
       }
       return fetch(url, options);
@@ -73,34 +76,35 @@ class Api {
 
   get(url) {
     let headers = this._setupHeader();
-    return this.request(`${domain}${url}`, {
+    return this.request(`${endpoint}${url}`, {
       method: "GET",
-    }).then(this.json());
+      headers,
+    }).then(this.json);
   }
   post(url, data = {}) {
     let headers = this._setupHeader();
     let body = JSON.stringify(data);
-    return this.request(`${domain}${url}`, {
+    return this.request(`${endpoint}${url}`, {
       method: "POST",
       headers,
       body,
-    }).then(this.json());
+    }).then(this.json);
   }
   put(url, data = {}) {
     let headers = this._setupHeader();
     let body = JSON.stringify(data);
-    return this.request(`${domain}${url}`, {
+    return this.request(`${endpoint}${url}`, {
       method: "PUT",
       headers,
       body,
-    }).then(this.json());
+    }).then(this.json);
   }
   delete(url) {
     let headers = this._setupHeader();
-    return this.request(`${domain}${url}`, {
+    return this.request(`${endpoint}${url}`, {
       method: "DELETE",
       headers,
-    }).then(this.json());
+    }).then(this.json);
   }
 }
-export default new Api();
+// export default new Api();

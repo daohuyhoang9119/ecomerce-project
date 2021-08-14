@@ -10,6 +10,7 @@ import { registerAction } from './../../../redux/action/authAction';
 function Register() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
+  let {regisSuccess, regisError} = useSelector(state => state.authReducer);
 
   //form
   const { register, handleSubmit, error,form } = useForm(
@@ -94,6 +95,20 @@ function Register() {
             <h6 className="mb-7">{t(`New Customer`)}</h6>
             {/* Form */}
             <form onSubmit={handleSubmit(formRegisterSubmitSuccess)}>
+              {
+                regisError && (
+                  <p style={{ marginBottom: 15, color: "#e55d5d" }}>
+                    {regisError}
+                  </p>
+                )
+              }
+              {
+                regisSuccess && (
+                  <p style={{marginBottom: 15, color: "#00ff00", fontSize:16, fontWeight: "bold"}}>
+                    {regisSuccess}
+                  </p>
+                )
+              }
               <div className="row">
                 <div className="col-12">
                   {/* Email */}

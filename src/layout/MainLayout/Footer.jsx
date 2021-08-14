@@ -84,15 +84,7 @@ function Footer() {
                       FAQs
                     </NavLink>
                   </li>
-                  <li>
-                    <a
-                      className="text-gray-300"
-                      data-toggle="modal"
-                      href="#modalSizeChart"
-                    >
-                      Size Guide
-                    </a>
-                  </li>
+                  
                   <li>
                     <NavLink className="text-gray-300" to="/shipping-returns">
                       Shipping &amp; Returns
@@ -106,24 +98,19 @@ function Footer() {
                 {/* Links */}
                 <ul className="list-unstyled mb-7 mb-sm-0">
                   <li>
-                    <NavLink className="text-gray-300" to="/shop">
-                      Men's Shopping
+                    <NavLink className="text-gray-300" to="/shop?categories=1846">
+                      Laptop Shop
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink className="text-gray-300" to="/shop">
-                      Women's Shopping
+                    <NavLink className="text-gray-300" to="/shop?categories=1801">
+                      Camera Shop
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink className="text-gray-300" to="/shop">
-                      Kids' Shopping
+                    <NavLink className="text-gray-300" to="/shop?categories=8594">
+                      Motor Shop
                     </NavLink>
-                  </li>
-                  <li>
-                    <a className="text-gray-300" href="./shop.html">
-                      Discounts
-                    </a>
                   </li>
                 </ul>
               </div>
@@ -137,16 +124,8 @@ function Footer() {
                       Our Story
                     </NavLink>
                   </li>
-                  <li>
-                    <a className="text-gray-300" href="#!">
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-gray-300" href="#!">
-                      Terms &amp; Conditions
-                    </a>
-                  </li>
+                  
+                  
                   <li>
                     <a className="text-gray-300" href="#!">
                       Privacy &amp; Cookie policy
@@ -161,17 +140,17 @@ function Footer() {
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a className="text-gray-300" href="#!">
-                      1-202-555-0105
+                      19521528
                     </a>
                   </li>
                   <li>
                     <a className="text-gray-300" href="#!">
-                      1-202-555-0106
+                      19521528
                     </a>
                   </li>
                   <li>
                     <a className="text-gray-300" href="#!">
-                      help@shopper.com
+                      19521528@gm.uit.edu.vn
                     </a>
                   </li>
                 </ul>

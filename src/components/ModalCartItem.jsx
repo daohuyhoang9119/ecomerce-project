@@ -3,6 +3,7 @@ import {useTranslate} from "../core/Translate";
 import { useDispatch } from 'react-redux';
 
 import {removeCart,decrease,increase} from "../redux/action/cartAction"
+import {FormatCurrency} from "../utils/FormatCurrency";
 
 export default function ModalCartItem(props) {
   let { t } = useTranslate();
@@ -13,6 +14,8 @@ export default function ModalCartItem(props) {
     e.preventDefault();
     dispatch(removeCart(props._id))
   } 
+
+  console.log(props.numCart);
 
 
   return (
@@ -30,16 +33,16 @@ export default function ModalCartItem(props) {
         </div>
         <div className="col">
           {/* Title */}
-          <div className="d-flex mb-2 font-weight-bold">
+          <div className="d-flex mb-2 font-weight-bold cart-item-scss">
             <a className="text-body" href="product.html">
               {props.name}
             </a>{" "}
-            <span className="ml-auto">{props.real_price} VND</span>
+            <span className="text-muted">{FormatCurrency(props.real_price)} VND</span>
           </div>
           {/* Text */}
           {/* <p className="mb-7 font-size-sm text-muted">{t("Color: Brown")} </p> */}
           {/*Footer */}
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center count_remove_scss">
             {/* Select */}
             <div className="add">
               <button
@@ -52,6 +55,7 @@ export default function ModalCartItem(props) {
               </button>
               <input
                 value={props.numCart}
+                type='text'
                 className="custom-select custom-select-xxs w-auto"
               />
               <button

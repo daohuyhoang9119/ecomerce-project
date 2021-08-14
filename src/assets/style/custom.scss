@@ -12,12 +12,13 @@
   font-size: 0.7rem;
 }
 .add {
-  max-width: 150px;
+  max-width: 105px;
   display: flex;
   input {
     width: 100% !important;
-    // border: none;
+    border: none;
     text-align: center;
+    overflow: visible;
   }
   button {
     background-color: #f9f9f9;
@@ -25,5 +26,18 @@
     width: 30px;
     text-align: center;
     outline: none;
+    flex-shrink: 0;
+    line-height: 30px;
   }
+}
+
+.cart-item-scss{
+  flex-direction: column;
+}
+.count_remove_scss{
+  justify-content: space-between;
+}
+
+.subtotal_price-cart-scss{
+  margin-left: auto;
 }

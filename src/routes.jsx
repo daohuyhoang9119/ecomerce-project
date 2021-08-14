@@ -17,6 +17,7 @@ import Home from "./pages/home";
 import Product from "./pages/product";
 import ShippingReturns from "./pages/shipping-and-returns";
 import Shop from "./pages/shop";
+import Shop2 from "./pages/shop-2";
 import ShoppingCart from "./pages/shopping-cart";
 import Store from "./pages/store";
 import OrderCompleted from './pages/order-completed/index';
@@ -99,6 +100,10 @@ let routes = [
       {
         path:'/shop',
         component: Shop
+      },
+      {
+        path:'/shop-2',
+        component: Shop2
       },
       {
         path:'/order-completed',

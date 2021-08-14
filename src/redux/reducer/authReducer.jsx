@@ -1,4 +1,4 @@
-import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER } from "../type";
+import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER,REGISTER_ERROR } from "../type";
 
 // import reduxToolkit from "../../core/reduxToolkit";
 // import Auth from "../../service/auth";
@@ -11,38 +11,45 @@ let initState = {
   data: JSON.parse(localStorage.getItem("data")) || false,
   loginError: "",
   regisError:"",
+  regisSuccess: "",
   error: null,
 };
 
 export default function authReducer(state = initState, action) {
   switch (action.type) {
     case LOGIN:
-      localStorage.setItem("login", JSON.stringify(action.payload));
+      // localStorage.setItem("login", JSON.stringify(action.payload));
       return {
         ...state,
-        login: action.payload,
+        login: true,
       };
     case LOGOUT:
-      localStorage.setItem("login", false);
-      localStorage.removeItem("token");
+      localStorage.clear();
       return {
         ...state,
         login: false,
       };
     case REGISTER:
-      localStorage.setItem("data", JSON.stringify(action.payload));
+      // localStorage.setItem("data", JSON.stringify(action.payload));
       return {
         ...state,
         data: action.payload,
-        
+        regisSuccess: "Congratulations register successful!!! Please login again!",
+        regisError : "",
       };
+    case REGISTER_ERROR:
+      return {
+        ...state,
+        registError: action.payload,
+        registSuccess: "",
+      }
     case ERROR:
       return {
         ...state,
         loginError: action.payload,
       };
     case UPDATE:
-      localStorage.setItem("login", JSON.stringify(action.payload));
+      // localStorage.setItem("login", JSON.stringify(action.payload));
       return {
         ...state,
         login: action.payload,

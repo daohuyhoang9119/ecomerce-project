@@ -4,6 +4,7 @@ import {useTranslate} from "../core/Translate";
 import ModalCartItem from './ModalCartItem';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {FormatCurrency} from "../utils/FormatCurrency";
 
 export function ModalCart() {
   let { t } = useTranslate();
@@ -55,7 +56,7 @@ export function ModalCart() {
           {/* Footer */}
           <div className="modal-footer line-height-fixed font-size-sm bg-light mt-auto">
             <strong>{t("Subtotal")}</strong>{" "}
-            <strong className="ml-auto">{amount}VND</strong>
+            <strong className="ml-auto subtotal_price-cart-scss">{FormatCurrency(amount)}VND</strong>
           </div>
           {/* Buttons */}
           <div className="modal-body">

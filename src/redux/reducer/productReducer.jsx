@@ -1,29 +1,25 @@
 import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING } from "../type";
 
 let initState = {
-    category: [],
-    product: [],
+    categories: JSON.parse(localStorage.getItem("categories")) || [],
+    product: JSON.parse(localStorage.getItem("localProduct")) || [],
     paginate: [],
-    loading: false,
+    loading: true,
     category_name:'',
     product_detail:{},
     dataSearch: {},
-    
 };
-
 export default function productReducer(state = initState, action){
     switch(action.type){
         case CATEGORY:
-            localStorage.setItem("catagories", JSON.stringify(action.payload));
             return{
                 ...state,
-                loading:false,
-                category: action.payload,
+                categories: action.payload,
             };
         case PRODUCT:
             return{
                 ...state,
-                loading:false,
+                loading: false,
                 paginate: action.payload.paginate,
                 product: action.payload.data,
             };
@@ -42,8 +38,6 @@ export default function productReducer(state = initState, action){
                 ...state,
                 product_detail: action.payload,
             }
-       
-
         default: {
             return state;
         }

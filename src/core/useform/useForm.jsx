@@ -96,7 +96,7 @@ export function useForm(initForm, validate) {
       if (Object.keys(errObj).length === 0) {
         callback(form);
         // console.log(form);
-        console.log('van chay dc')
+        // console.log('van chay dc')
       }
     };
   }

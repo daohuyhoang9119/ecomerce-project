@@ -29,12 +29,12 @@ export function registerAction(data){
     return async (dispatch) =>{
         let res = await Auth.register(data);
         if(res?.data){
-            dispatch({
+            return({
                 type:REGISTER,
                 payload: res.data,
             })
         }else if(res.error){
-            dispatch({
+            return({
                 type: REGISTER_ERROR,
                 payload: res.error,
             });

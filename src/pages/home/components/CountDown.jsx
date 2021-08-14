@@ -1,13 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslate } from "../../../core/Translate";
+import  useCountDown from "../../../core/useCountDown";
 
 function CountDown() {
   let { t } = useTranslate();
+  let {day, hour, minute, second} = useCountDown(123434);
   return (
     <section
       className="py-13 bg-cover"
-      style={{ backgroundImage: "url(/img/covers/cover-4.jpg)" }}
+      style={{ backgroundImage: "url(/img/covers/count-down-background-3.jpg)" }}
     >
       <div className="container">
         <div className="row justify-content-end">
@@ -29,7 +31,7 @@ function CountDown() {
                   className="font-size-h1 font-weight-bolder text-primary"
                   data-days
                 >
-                  00
+                  {day.toString().padStart(2, 0)}
                 </div>
                 <div className="heading-xxs text-muted">{t(`Days`)}</div>
               </div>
@@ -43,7 +45,7 @@ function CountDown() {
                   className="font-size-h1 font-weight-bolder text-primary"
                   data-hours
                 >
-                  00
+                  {hour.toString().padStart(2, 0)}
                 </div>
                 <div className="heading-xxs text-muted">{t(`Hours`)}</div>
               </div>
@@ -57,7 +59,7 @@ function CountDown() {
                   className="font-size-h1 font-weight-bolder text-primary"
                   data-minutes
                 >
-                  00
+                  {minute.toString().padStart(2, 0)}
                 </div>
                 <div className="heading-xxs text-muted">{t(`Minutes`)}</div>
               </div>
@@ -71,7 +73,7 @@ function CountDown() {
                   className="font-size-h1 font-weight-bolder text-primary"
                   data-seconds
                 >
-                  00
+                  {second.toString().padStart(2, 0)}
                 </div>
                 <div className="heading-xxs text-muted">{t(`Seconds`)}</div>
               </div>

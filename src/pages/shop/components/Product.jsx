@@ -1,10 +1,13 @@
 import {Link} from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
-
+import {useEffect} from "react";
 import { addCart } from "../../../redux/action/cartAction";
 import { productViewAction } from './../../../redux/action/productAction';
 import { addWishList } from './../../../redux/action/userAction';
+
+import { FormatCurrency } from "../../../utils/FormatCurrency";
+import { LOADING } from "../../../redux/type";
 
 export default function Product(props){
   const dispatch = useDispatch();
@@ -23,6 +26,7 @@ export default function Product(props){
     
     dispatch(addWishList({...props}))
   }
+  console.log('render o product');
 
 
 
@@ -30,6 +34,7 @@ export default function Product(props){
     e.preventDefault();
     dispatch(addCart({...props}));
   }
+
 
   return(
         <div className="col-6 col-md-4">
@@ -98,7 +103,7 @@ export default function Product(props){
                   <div className="card-body px-0">
                     {/* Category */}
                     {
-                      loading ? <Skeleton height={60} animation="wave" /> : 
+                      loading === true ? <Skeleton height={60} animation="wave" /> : 
                       <> 
                         <div className="font-size-xs product-rating" >
                             <span>{rating_average} ⭐</span>
@@ -116,8 +121,8 @@ export default function Product(props){
                         <> 
                           {/* Price */}
                           <div className="font-weight-bold">
-                              <span className="font-size-xs text-gray-350 text-decoration-line-through">{price}</span>
-                              <span className="text-primary">{real_price}</span>
+                              <span className="font-size-xs text-gray-350 text-decoration-line-through">{`${FormatCurrency(price)}VND`}</span>
+                              <span className="text-primary">{`${FormatCurrency(real_price)}VND`}</span>
                           </div>
                         </>
                     }

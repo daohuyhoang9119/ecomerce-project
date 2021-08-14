@@ -29,7 +29,7 @@ function BestPicks() {
               className="card mb-7 text-white"
               style={{
                 minHeight: "400px",
-                backgroundImage: "url(/img/products/product-1.jpg)",
+                backgroundImage: "url(/img/products/best-pick-01.jpg)",
               }}
             >
               {/* Background */}
@@ -37,7 +37,7 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/product-1.jpg)",
+                    backgroundImage: "url(/img/products/best-pick-01.jpg)",
                   }}
                 />
               </div>
@@ -64,7 +64,7 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/product-2.jpg)",
+                    backgroundImage: "url(/img/products/best-pick-02.jpg)",
                   }}
                 />
               </div>
@@ -99,7 +99,7 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/product-3.jpg)",
+                    backgroundImage: "url(/img/products/best-pick-03.jpg)",
                   }}
                 />
               </div>
@@ -125,7 +125,7 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/product-4.jpg)",
+                    backgroundImage: "url(/img/products/best-pick-04.jpg)",
                   }}
                 />
               </div>
