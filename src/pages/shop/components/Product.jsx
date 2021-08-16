@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
@@ -51,7 +51,7 @@ export default function Product(props){
                       {
                         loading ? <Skeleton animation="wave" variant="rect" width={250} height={250}/> : 
                         <>
-                          <Link className="card-img-hover" to={`/shop/${slug}`}>
+                          <NavLink className="card-img-hover"  to={`shop/${slug}`}>
                             <img
                               className="card-img-top card-img-back"
                               src={thumbnail_url}
@@ -62,7 +62,7 @@ export default function Product(props){
                               src={thumbnail_url}
                               alt="..."
                             />
-                          </Link>
+                          </NavLink>
                         </>
                       }
                       

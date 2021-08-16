@@ -93,13 +93,18 @@ let routes = [
         path:'/faq',
         component: Faq
       },
+      // {
+      //   path:'/product',
+      //   component: Product
+      // },
       {
-        path:'/product',
-        component: Product
+        exact: true,
+        path:'/shop',
+        component: Shop,
       },
       {
-        path:'/shop',
-        component: Shop
+        path:'/shop/:slug',
+        component: Product,
       },
       {
         path:'/shop-2',

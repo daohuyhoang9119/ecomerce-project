@@ -9,12 +9,16 @@ let reducer = combineReducers({
   authReducer,
   productReducer,
   cartReducer,
-  userReducer,
+  userReducer,  
 });
 
+//tự định nghĩa 1 middleware
 const middleware = (store) => (next) => (action) => {
+  //function bên trong action, bth action là 1 object nhưng mờ khi gọi api nó là 1 async function 
   if (typeof action === "function") {
     return action(store.dispatch);
+    //truyền dispatch vào trong cái function ở trong action đó
+
   } else {
     next(action);
   }

@@ -20,7 +20,7 @@ export function loginAction(data) {
 
 }
 export function logoutAction(data){
-    return {
+    return {    
         type:LOGOUT
     }
 }

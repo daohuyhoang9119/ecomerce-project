@@ -1,6 +1,8 @@
 import React from "react";
 
 function Product(props) {
+  console.log('vô product');
+  console.log(props);
   return (
     <>
       {/* PRODUCT */}
