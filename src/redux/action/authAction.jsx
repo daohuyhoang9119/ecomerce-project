@@ -1,23 +1,43 @@
 import Auth from "../../service/auth";
-import { LOGIN,LOGOUT,ERROR,REGISTER,REGISTER_ERROR,UPDATE } from "../type";
+import { LOGIN,LOGOUT,ERROR,REGISTER,REGISTER_ERROR,UPDATE, AUTH_FETCH_LOGIN, LOGIN_ERROR,AUTH_FETCH_REGISTER } from "../type";
+
+
+//function use redux-saga
+export function fetchLogin(form){
+    return {
+        type: AUTH_FETCH_LOGIN,
+        payload : form,
+    };
+}
+
+export function fetchRegister(form){
+    return {
+        type: AUTH_FETCH_REGISTER,
+        payload: form,
+    }
+}
+
+//normal action
+
+export function registerError(data){
+    return {
+        type: REGISTER_ERROR,
+        payload : data,
+    }
+}
+
+export function loginError(data){
+    return {
+        type: LOGIN_ERROR,
+        payload: data,
+    }
+}
 
 export function loginAction(data) {
-    return async (dispatch) => {
-        let res = await Auth.login(data);
-        if (res?.data) {
-            localStorage.setItem("token", JSON.stringify(res.data.token));
-            dispatch({
-                type: LOGIN,
-                payload: res.data,
-            });
-        } else if (res.error) {
-            dispatch({
-                type: ERROR,
-                payload: res.error,
-            });
-        }
-    };
-
+    return {
+        type: LOGIN,
+        payload: data,
+    }
 }
 export function logoutAction(data){
     return {    
@@ -25,21 +45,12 @@ export function logoutAction(data){
     }
 }
 
+
 export function registerAction(data){
-    return async (dispatch) =>{
-        let res = await Auth.register(data);
-        if(res?.data){
-            return({
-                type:REGISTER,
-                payload: res.data,
-            })
-        }else if(res.error){
-            return({
-                type: REGISTER_ERROR,
-                payload: res.error,
-            });
-        }
-    };
+    return {
+        type: REGISTER,
+        payload : data,
+    }
 }
 export function updateAction(data){
     return async (dispatch) => {
@@ -58,14 +69,3 @@ export function updateAction(data){
     }
 }
 
-
-
-//   return (dispatch, state) => {
-//     userApi.login(data).then((res) => {
-//       if (res.error) {
-//         dispatch(action.error({ loginError: res.error }));
-//       } else {
-//         dispatch(action.login(res.data));
-//       }
-//     });
-//   };

@@ -26,7 +26,6 @@ export default function Product(props){
     
     dispatch(addWishList({...props}))
   }
-  console.log('render o product');
 
 
 

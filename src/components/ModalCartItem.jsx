@@ -15,8 +15,6 @@ export default function ModalCartItem(props) {
     dispatch(removeCart(props._id))
   } 
 
-  console.log(props.numCart);
-
 
   return (
     <li className="list-group-item">

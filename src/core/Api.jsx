@@ -20,7 +20,7 @@ export  class Api {
     return new Promise((resolve, reject) => {});
   }
   async refreshToken() {
-    let refreshToken = JSON.parse(localStorage.getItem("token"))?.refreshToken;
+    let refreshToken = JSON.parse(localStorage.getItem("tokenUser"))?.refreshToken;
 
     let res = await fetch(`${endpoint}elearning/v4/refresh-token`, {
       method: "POST",
@@ -63,7 +63,7 @@ export  class Api {
     }
 
     console.log('vo ham request');
-    if (response.status === 403) {
+    if (response.status === 401) {
       await this.refreshToken();
       let token = JSON.parse(localStorage.getItem("token"));
       if (token?.accessToken) {

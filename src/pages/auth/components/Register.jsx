@@ -5,13 +5,14 @@ import { useTranslate } from "../../../core/Translate";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useForm, ErrorMessage } from '../../../core/useform';
-import { registerAction } from './../../../redux/action/authAction';
+import { registerAction, fetchRegister } from './../../../redux/action/authAction';
 
 function Register() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
   let {regisSuccess, regisError} = useSelector(state => state.authReducer);
-
+  console.log(regisError);
+  console.log(regisSuccess);
   //form
   const { register, handleSubmit, error,form } = useForm(
     {
@@ -82,7 +83,8 @@ function Register() {
   //   }
   // }
   function formRegisterSubmitSuccess(form){
-    dispatch(registerAction(form))
+    // dispatch(registerAction(form))
+    dispatch(fetchRegister(form))
   }
 
   return (

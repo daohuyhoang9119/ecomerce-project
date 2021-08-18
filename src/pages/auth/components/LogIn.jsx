@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslate } from "../../../core/Translate";
 // import { loginAction } from "../../../redux/reducer/authReducer";
 import { useForm, ErrorMessage } from "../../../core/useform";
-import { loginAction } from './../../../redux/action/authAction';
+import { loginAction, fetchLogin } from './../../../redux/action/authAction';
 
 function LogIn() {
   let { t } = useTranslate();
@@ -49,10 +49,10 @@ function LogIn() {
   // }
 
   function formSubmitValidateSuccess(form) {
-    dispatch(loginAction(form))
+    // dispatch(loginAction(form))
+    dispatch(fetchLogin(form))
   }
-  // const auth = useSelector(state => state.auth);
-
+  
 
   return (
     <div className="col-12 col-md-6">

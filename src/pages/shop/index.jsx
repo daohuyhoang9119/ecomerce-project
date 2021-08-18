@@ -43,7 +43,6 @@ function Shop() {
     dispatch(productAction(pageParam));
   },[pageParam])
 
-  console.log('render o index');
   return (
     <section className="py-11">
       <div className="container">

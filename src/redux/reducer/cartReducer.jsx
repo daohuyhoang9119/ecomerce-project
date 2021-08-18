@@ -1,4 +1,4 @@
-import {ADD_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT} from "../type";
+import {ADD_CART, REMOVE_CART, INCREASE_PRODUCT, DECREASE_PRODUCT, CLEAR_CART} from "../type";
 
 const listCart = JSON.parse(localStorage.getItem("cart")) || [];
 let num = listCart.length;
@@ -11,7 +11,6 @@ let initState = {
 }
 
 export default function cartReducer(state = initState, action){
-    
     switch(action.type){
         case ADD_CART:{
            
@@ -55,7 +54,6 @@ export default function cartReducer(state = initState, action){
                 amount,
             };    
         }
-
         case INCREASE_PRODUCT:{
             let { listCart, amount, num } = state;
             const index = listCart.findIndex((e) => e._id === action.payload);
@@ -89,6 +87,20 @@ export default function cartReducer(state = initState, action){
                 listCart,
                 amount,
                 num: num - 1,
+            };
+        }
+        case CLEAR_CART:{
+            let {listCart, amount, num} = state;
+            listCart = [];
+            amount = 0;
+            num = 0;
+            localStorage.removeItem("amount");
+            localStorage.removeItem("cart");
+            return {
+                ...state,
+                listCart,
+                amount,
+                num,
             };
         }
         default:
