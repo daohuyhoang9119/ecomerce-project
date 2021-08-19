@@ -3,7 +3,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import { addCart } from "../../../redux/action/cartAction";
-import { productViewAction } from './../../../redux/action/productAction';
+import { productViewAction, productDetail } from './../../../redux/action/productAction';
 import { addWishList } from './../../../redux/action/authAction';
 
 import { FormatCurrency } from "../../../utils/FormatCurrency";
@@ -26,6 +26,14 @@ export default function Product(props){
     
     dispatch(addWishList({...props}))
   }
+  
+  // const handleClickProductDetail = (e) =>{
+  //   // dispatch(productDetail(...props));
+  //   // e.preventDefault();
+  //   console.log('vao day');
+  //   dispatch(productDetail(slug));
+  //   console.log(slug);
+  // }
 
 
 
@@ -50,7 +58,7 @@ export default function Product(props){
                       {
                         loading ? <Skeleton animation="wave" variant="rect" width={250} height={250}/> : 
                         <>
-                          <NavLink className="card-img-hover"  to={`shop/${slug}`} >
+                          <Link className="card-img-hover"  to={`shop/${slug}`} >
                             <img
                               className="card-img-top card-img-back"
                               src={thumbnail_url}
@@ -61,7 +69,7 @@ export default function Product(props){
                               src={thumbnail_url}
                               alt="..."
                             />
-                          </NavLink>
+                          </Link>
                         </>
                       }
                       

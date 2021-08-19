@@ -9,6 +9,7 @@ import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER,REGISTER_ERROR, ADD_WISHLIST, RE
 let initState = {
   login: JSON.parse(localStorage.getItem("login")) || false,
   data: JSON.parse(localStorage.getItem("data")) || false,
+  dataUser: JSON.parse(localStorage.getItem("dataUser")) || '',
   loginError: "",
   regisError:"",
   regisSuccess: "",
@@ -23,6 +24,7 @@ export default function authReducer(state = initState, action) {
       return {
         ...state,
         login: true,
+        dataUser: action.payload,
       };
     case LOGOUT:
       localStorage.clear();
@@ -56,29 +58,6 @@ export default function authReducer(state = initState, action) {
         ...state,
         login: action.payload,
       };
-    // case REMOVE_WISHLIST:{
-    //   let { wishList } = state;
-      
-    //   const index = wishList.findIndex((e) => e._id === action.payload._id);            
-    //   wishList.splice(index, 1);
-    //   localStorage.setItem("WishList", JSON.stringify(wishList));
-    //   return {
-    //       ...state,
-    //       wishList,
-    //   };
-    // }
-    // case ADD_WISHLIST:{
-    //   let { wishList } = state;
-    //   let item = action.payload;
-
-    //   wishList.push(item);
-    //   console.log(wishList);
-    //   localStorage.setItem("WishList", JSON.stringify(wishList));
-    //   return {
-    //       ...state,
-    //       wishList
-    //   }
-    // }
     default:
       return state;
   }

@@ -11,6 +11,7 @@ export const LOGIN_ERROR = "LOGIN_ERROR";
 
 //product
 export const PRODUCT = "PRODUCT";
+export const PRODUCT_DETAIL = "PRODUCT_DETAIL";
 export const LOADING = "LOADING";
 export const CATEGORY = "CATEGORY";
 export const  FETCH_CATEGORY = " FETCH_CATEGORY";

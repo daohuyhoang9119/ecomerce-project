@@ -42,7 +42,7 @@ export default function ModalCartItem(props) {
           {/*Footer */}
           <div className="d-flex align-items-center count_remove_scss">
             {/* Select */}
-            <div className="add">
+            {/* <div className="inputCartItem">
               <button
                   className="plus"
                   onClick={() => {
@@ -64,6 +64,25 @@ export default function ModalCartItem(props) {
               >
                 +
               </button>
+            </div> */}
+
+            {/* new */}
+            <div className="inputCartItem">
+              <div class="value-button" id="decrease"  value="Decrease Value"
+              onClick={() => {
+                dispatch(decrease(props._id));
+              }}>
+                -
+              </div>
+
+              <input type="number" id="number" value={props.numCart} />
+              
+              <div class="value-button" id="increase"  value="Increase Value"
+              onClick={() => {
+                dispatch(increase(props._id));
+              }}>
+                +
+              </div>
             </div>
             {/* Remove */}
             <a className="font-size-xs text-gray-400 ml-auto" href="#!" onClick={handleRemoveCart}>

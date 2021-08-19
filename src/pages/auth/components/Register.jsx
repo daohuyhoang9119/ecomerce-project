@@ -11,8 +11,6 @@ function Register() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
   let {regisSuccess, regisError} = useSelector(state => state.authReducer);
-  console.log(regisError);
-  console.log(regisSuccess);
   //form
   const { register, handleSubmit, error,form } = useForm(
     {

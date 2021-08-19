@@ -1,8 +1,37 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import { useRouteMatch } from "react-router-dom";
 
-function Product(props) {
-  console.log('vô product');
-  console.log(props);
+
+import { useSelector, useDispatch } from "react-redux"
+import ProductApi from "../../service/productApi";
+function Product() {
+  let dispatch = useDispatch();
+  const { product_detai } = useSelector(state => state.productReducer);
+
+  const [state, setState] = useState({
+    product:{},
+  });
+  let {params} = useRouteMatch();
+  console.log(`params: ${params.slug}`)
+
+
+  useEffect(()=>{
+    ProductApi.productDetail(params.slug).then((res) => { 
+      if(res.data.length > 0){
+        setState({
+          product: res.data[0],
+        })
+      }
+    });
+
+  },[params.slug])
+
+  console.log(state.product);
+
+
+
+  console.log(product_detai);
+
   return (
     <>
       {/* PRODUCT */}
@@ -205,250 +234,7 @@ function Product(props) {
                         </strong>
                       </p>
                       {/* Radio */}
-                      <div className="mb-2">
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioOne"
-                            defaultValue={6}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioOne"
-                          >
-                            6
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioTwo"
-                            defaultValue="6.5"
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                            disabled
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioTwo"
-                          >
-                            6.5
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioThree"
-                            defaultValue={7}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioThree"
-                          >
-                            7
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioFour"
-                            defaultValue="7.5"
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                            defaultChecked
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioFour"
-                          >
-                            7.5
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioFive"
-                            defaultValue={8}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioFive"
-                          >
-                            8
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioSix"
-                            defaultValue="8.5"
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioSix"
-                          >
-                            8.5
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioSeven"
-                            defaultValue={9}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                            disabled
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioSeven"
-                          >
-                            9
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioEight"
-                            defaultValue="9.5"
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                            disabled
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioEight"
-                          >
-                            9.5
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioNine"
-                            defaultValue={10}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioNine"
-                          >
-                            10
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioTen"
-                            defaultValue="10.5"
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioTen"
-                          >
-                            10.5
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioEleven"
-                            defaultValue={11}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioEleven"
-                          >
-                            11
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioTwelve"
-                            defaultValue={12}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioTwelve"
-                          >
-                            12
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioThirteen"
-                            defaultValue={13}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioThirteen"
-                          >
-                            13
-                          </label>
-                        </div>
-                        <div className="custom-control custom-control-inline custom-control-size mb-2">
-                          <input
-                            type="radio"
-                            className="custom-control-input"
-                            name="sizeRadio"
-                            id="sizeRadioFourteen"
-                            defaultValue={14}
-                            data-toggle="form-caption"
-                            data-target="#sizeCaption"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor="sizeRadioFourteen"
-                          >
-                            14
-                          </label>
-                        </div>
-                      </div>
+                      
                       {/* Size chart */}
                       <p className="mb-8">
                         <img

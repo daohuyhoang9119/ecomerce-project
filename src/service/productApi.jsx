@@ -13,6 +13,9 @@ const ProductApi = {
         // return fetch(`http://cfd-reactjs.herokuapp.com/product?slug=${slug}`,{}).then(res => res.json());
         return api.get(`product?slug=${slug}`);
     },
+    productDetail(slug){
+        return api.get(`product?slug=${slug}`);
+    },
     searchProduct(slug){
         return fetch(`http://cfd-reactjs.herokuapp.com/product?search=${slug}`,{}).then(res => res.json);
     }

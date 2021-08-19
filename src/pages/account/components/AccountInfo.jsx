@@ -10,7 +10,7 @@ function AccountInfo() {
   let { t } = useTranslate();
   let dispatch = useDispatch();
 
-  let {login} = useSelector((store) => store.authReducer)
+  let {login, dataUser} = useSelector((store) => store.authReducer)
   
   //handle day-month-year
   let yearNow = new Date().getFullYear();
@@ -22,10 +22,10 @@ function AccountInfo() {
 
   let {register, handleSubmit, error,form} = useForm(
     {
-      first_name: login.first_name,
-      last_name : login.last_name,
-      username: login.email,
-      gender: '',
+      first_name: dataUser.first_name,
+      last_name : dataUser.last_name,
+      username: dataUser.email,
+      gender: dataUser.gender || "male",
       password: "",
       confirm_password: "",
     },

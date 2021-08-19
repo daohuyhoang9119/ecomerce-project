@@ -30,7 +30,8 @@ function Shop() {
 		history.push(`${path}?${url}`);
   }
 
-  
+
+
   useEffect( () => {  
     //category 
     dispatch(fetchCategory());
@@ -89,7 +90,7 @@ function Shop() {
               {loading
                 ? [...Array(15)].map((item,index) => <Product {...item} key={index} loading={true}/> )
                 : product.map((item) => 
-                  <Product {...item} key={item._id}/>
+                  <Product {...item} key={item._id} />
                 )
               }
             </div>
