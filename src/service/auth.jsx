@@ -12,6 +12,11 @@ const Auth = {
   update(data) {
     return api.token().post(`update-profile`,data);
   },
+
+  //wishlist
+  create(data){
+    return api.token().post('ecommerce/v1/profile/wishlist',data);
+}
 };
 
 

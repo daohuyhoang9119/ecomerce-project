@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../core/Translate"
 import { useSelector, useDispatch } from "react-redux";
-import { removeWishList } from './../../../redux/action/userAction';
+import { removeWishList } from './../../../redux/action/authAction';
 import { FormatCurrency } from './../../../utils/FormatCurrency';
 
 

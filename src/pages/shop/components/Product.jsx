@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import { addCart } from "../../../redux/action/cartAction";
 import { productViewAction } from './../../../redux/action/productAction';
-import { addWishList } from './../../../redux/action/userAction';
+import { addWishList } from './../../../redux/action/authAction';
 
 import { FormatCurrency } from "../../../utils/FormatCurrency";
 import { LOADING } from "../../../redux/type";
@@ -50,7 +50,7 @@ export default function Product(props){
                       {
                         loading ? <Skeleton animation="wave" variant="rect" width={250} height={250}/> : 
                         <>
-                          <NavLink className="card-img-hover"  to={`shop/${slug}`}>
+                          <NavLink className="card-img-hover"  to={`shop/${slug}`} >
                             <img
                               className="card-img-top card-img-back"
                               src={thumbnail_url}

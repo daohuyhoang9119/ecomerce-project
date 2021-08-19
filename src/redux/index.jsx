@@ -7,13 +7,12 @@ import saga from "./saga";
 import authReducer from "./reducer/authReducer";
 import productReducer from "./reducer/productReducer";
 import cartReducer from './reducer/cartReducer';
-import userReducer from './reducer/userReducer';
+// import userReducer from './reducer/userReducer';
 
 let reducer = combineReducers({
   authReducer,
   productReducer,
   cartReducer,
-  userReducer,  
 });
 
 //create saga

@@ -7,7 +7,7 @@ import AccountWishlistItem from './AccountWishListItem';
 function AccountWishlist() {
   let { t } = useTranslate();
 
-  const { wishList } = useSelector(state => state.userReducer); 
+  const { wishList } = useSelector(state => state.productReducer); 
   return (
     <>
       {/* Products */}

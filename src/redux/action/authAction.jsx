@@ -1,5 +1,5 @@
 import Auth from "../../service/auth";
-import { LOGIN,LOGOUT,ERROR,REGISTER,REGISTER_ERROR,UPDATE, AUTH_FETCH_LOGIN, LOGIN_ERROR,AUTH_FETCH_REGISTER } from "../type";
+import { LOGIN,LOGOUT,ERROR,REGISTER,REGISTER_ERROR,UPDATE, AUTH_FETCH_LOGIN, LOGIN_ERROR,AUTH_FETCH_REGISTER, ADD_WISHLIST, REMOVE_WISHLIST } from "../type";
 
 
 //function use redux-saga
@@ -66,6 +66,20 @@ export function updateAction(data){
                 payload: res.error,
             });
         }
+    }
+}
+
+//wishlist
+export function addWishList(item){
+    return {
+        type: ADD_WISHLIST,
+        payload: item,
+    }
+}
+export function removeWishList(id){
+    return {
+        type: REMOVE_WISHLIST,
+        payload: id,
     }
 }
 

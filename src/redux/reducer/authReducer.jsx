@@ -1,4 +1,4 @@
-import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER,REGISTER_ERROR } from "../type";
+import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER,REGISTER_ERROR, ADD_WISHLIST, REMOVE_WISHLIST } from "../type";
 
 // import reduxToolkit from "../../core/reduxToolkit";
 // import Auth from "../../service/auth";
@@ -13,6 +13,8 @@ let initState = {
   regisError:"",
   regisSuccess: "",
   error: null,
+  // wishList: JSON.parse(localStorage.getItem('WishList') || []),
+  // wishList: JSON.parse(localStorage.getItem("WishList")) || [],
 };
 
 export default function authReducer(state = initState, action) {
@@ -54,8 +56,31 @@ export default function authReducer(state = initState, action) {
         ...state,
         login: action.payload,
       };
+    // case REMOVE_WISHLIST:{
+    //   let { wishList } = state;
+      
+    //   const index = wishList.findIndex((e) => e._id === action.payload._id);            
+    //   wishList.splice(index, 1);
+    //   localStorage.setItem("WishList", JSON.stringify(wishList));
+    //   return {
+    //       ...state,
+    //       wishList,
+    //   };
+    // }
+    // case ADD_WISHLIST:{
+    //   let { wishList } = state;
+    //   let item = action.payload;
+
+    //   wishList.push(item);
+    //   console.log(wishList);
+    //   localStorage.setItem("WishList", JSON.stringify(wishList));
+    //   return {
+    //       ...state,
+    //       wishList
+    //   }
+    // }
     default:
       return state;
-    }
+  }
 }
 

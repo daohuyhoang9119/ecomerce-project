@@ -1,4 +1,4 @@
-import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING } from "../type";
+import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING, ADD_WISHLIST, REMOVE_WISHLIST } from "../type";
 
 let initState = {
     categories: JSON.parse(localStorage.getItem("categories")) || [],
@@ -8,6 +8,7 @@ let initState = {
     category_name:'',
     product_detail:{},
     dataSearch: {},
+    wishList: JSON.parse(localStorage.getItem("WishList")) || [],
 };
 export default function productReducer(state = initState, action){
     switch(action.type){
@@ -38,6 +39,29 @@ export default function productReducer(state = initState, action){
                 ...state,
                 product_detail: action.payload,
             }
+        case REMOVE_WISHLIST:{
+            let { wishList } = state;
+            
+            const index = wishList.findIndex((e) => e._id === action.payload._id);            
+            wishList.splice(index, 1);
+            localStorage.setItem("WishList", JSON.stringify(wishList));
+            return {
+                ...state,
+                wishList,
+            };
+        }
+        case ADD_WISHLIST:{
+            let { wishList } = state;
+            let item = action.payload;
+        
+            wishList.push(item);
+            console.log(wishList);
+            localStorage.setItem("WishList", JSON.stringify(wishList));
+            return {
+                ...state,
+                wishList
+            };
+        }
         default: {
             return state;
         }
