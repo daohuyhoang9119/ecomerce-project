@@ -179,7 +179,7 @@ function Header() {
         <div className="container">
           {/* Brand */}
           <NavLink className="navbar-brand" to="/">
-            {t("Shopper.")}
+            {t("KShope.")}
           </NavLink>
           {/* <NavLink to={`${path}/course`}>Khóa học của bạn</NavLink> */}
           {/* Toggler */}
