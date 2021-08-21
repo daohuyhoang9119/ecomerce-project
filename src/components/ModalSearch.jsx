@@ -136,7 +136,8 @@ export default function ModalSearch() {
 }
 
 
-function SearchItem({name, images, real_price_text, slug}){
+function SearchItem(state){
+  const {name, images, real_price, slug} = state;
   return (
     <div className="row align-items-center position-relative mb-5">
         <div className="col-4 col-md-3">
@@ -147,7 +148,7 @@ function SearchItem({name, images, real_price_text, slug}){
             {/* Text */}
             <p className="mb-0 font-weight-bold">
                 <Link className="stretched-link text-body" to={`shop/${slug}`}>{name}</Link> <br />
-                <span className="text-muted">{real_price_text} vnd</span>
+                <span className="text-muted">{real_price} vnd</span>
             </p>
         </div>
     </div>

@@ -1,13 +1,12 @@
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
 import { addCart } from "../../../redux/action/cartAction";
-import { productViewAction, productDetail } from './../../../redux/action/productAction';
+import { productViewAction} from './../../../redux/action/productAction';
 import { addWishList } from './../../../redux/action/authAction';
 
 import { FormatCurrency } from "../../../utils/FormatCurrency";
-import { LOADING } from "../../../redux/type";
+// import { LOADING } from "../../../redux/type";
 
 export default function Product(props){
   const dispatch = useDispatch();

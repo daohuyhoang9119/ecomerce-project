@@ -1,4 +1,4 @@
-import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING, ADD_WISHLIST, REMOVE_WISHLIST, PRODUCT_DETAIL, SEARCH } from "../type";
+import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING, ADD_WISHLIST, REMOVE_WISHLIST, SEARCH } from "../type";
 
 let initState = {
     categories: JSON.parse(localStorage.getItem("categories")) || [],
@@ -25,11 +25,11 @@ export default function productReducer(state = initState, action){
                 paginate: action.payload.paginate,
                 product: action.payload.data,
             };
-        case PRODUCT_DETAIL:
-            return{
-                ...state,
-                product_detail: action.payload,
-            }
+        // case PRODUCT_DETAIL:
+        //     return{
+        //         ...state,
+        //         product_detail: action.payload,
+        //     }
         case LOADING:
             return{
                 ...state,

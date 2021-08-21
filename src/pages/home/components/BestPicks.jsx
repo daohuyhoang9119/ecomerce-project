@@ -29,7 +29,7 @@ function BestPicks() {
               className="card mb-7 text-white"
               style={{
                 minHeight: "400px",
-                backgroundImage: "url(/img/products/best-pick-01.jpg)",
+                backgroundImage: "url(./img/products/best-pick-01.jpg)",
               }}
             >
               {/* Background */}
@@ -37,14 +37,14 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/best-pick-01.jpg)",
+                    backgroundImage: "url(./img/products/best-pick-01.jpg)",
                   }}
                 />
               </div>
               {/* Body */}
               <div className="card-body my-auto text-center">
                 {/* Heading */}
-                <h4 className="mb-0">{t("Bags Collection")}</h4>
+                <h4 className="mb-0">{t("Electronics")}</h4>
                 {/* Link */}
                 <NavLink
                   className="btn btn-link stretched-link text-reset"
@@ -64,7 +64,7 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/best-pick-02.jpg)",
+                    backgroundImage: "url(./img/products/best-pick-02.jpg)",
                   }}
                 />
               </div>
@@ -76,11 +76,11 @@ function BestPicks() {
                   <span className="font-size-h4 font-weight-bold">30%</span>
                 </div>
                 {/* Heading */}
-                <h4 className="mb-0">{t("Printed men’s Shirts")}</h4>
+                <h4 className="mb-0">{t("Phone & Tablet")}</h4>
                 {/* Link */}
                 <NavLink
                   className="btn btn-link stretched-link px-0 text-reset"
-                  to="/shop"
+                  to="/shop?categories=1789"
                 >
                   {t("Shop Now")}
                   <i className="fe fe-arrow-right ml-2" />
@@ -99,14 +99,14 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/best-pick-03.jpg)",
+                    backgroundImage: "url(./img/products/best-pick-03.jpg)",
                   }}
                 />
               </div>
               {/* Body */}
               <div className="card-body my-auto px-md-10 text-center text-md-left">
                 {/* Heading */}
-                <h4 className="mb-0">{t("Basic women’s Dresses")}</h4>
+                <h4 className="mb-0">{t("Camera")}</h4>
                 {/* Link */}
                 <NavLink
                   className="btn btn-link stretched-link px-0 text-reset"
@@ -125,18 +125,18 @@ function BestPicks() {
                 <div
                   className="card-bg-img bg-cover"
                   style={{
-                    backgroundImage: "url(/img/products/best-pick-04.jpg)",
+                    backgroundImage: "url(./img/products/best-pick-05.jpg)",
                   }}
                 />
               </div>
               {/* Body */}
               <div className="card-body my-auto text-center">
                 {/* Heading */}
-                <h4 className="mb-0">{t("Sweatshirts")}</h4>
+                <h4 className="mb-0">{t("Books")}</h4>
                 {/* Link */}
                 <NavLink
                   className="btn btn-link stretched-link text-reset"
-                  to="/shop"
+                  to="/shop?categories=8322"
                 >
                   {t("Shop Now")}
                   <i className="fe fe-arrow-right ml-2" />

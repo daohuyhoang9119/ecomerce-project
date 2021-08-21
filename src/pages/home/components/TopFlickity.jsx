@@ -12,7 +12,7 @@ function TopFlickity() {
           {/* Item */}
           <div
             className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover"
-            style={{ backgroundImage: "url(/img/covers/laptop.jpg)" }}
+            style={{ backgroundImage: "url(./img/covers/laptop.jpg)" }}
           >
             <div
               className="card bg-dark-5 bg-hover text-white text-center"
@@ -33,7 +33,7 @@ function TopFlickity() {
           {/* Card */}
           <div
             className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover"
-            style={{ backgroundImage: "url(/img/covers/camera.jpg)" }}
+            style={{ backgroundImage: "url(./img/covers/camera.jpg)" }}
           >
             <div
               className="card bg-dark-5 bg-hover text-white text-center"
@@ -54,7 +54,7 @@ function TopFlickity() {
           {/* Card */}
           <div
             className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover"
-            style={{ backgroundImage: "url(/img/covers/motor.jpg)" }}
+            style={{ backgroundImage: "url(./img/covers/motor.jpg)" }}
           >
             <div
               className="card bg-dark-5 bg-hover text-white text-center"

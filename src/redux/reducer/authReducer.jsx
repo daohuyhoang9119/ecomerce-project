@@ -1,4 +1,4 @@
-import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER,REGISTER_ERROR, ADD_WISHLIST, REMOVE_WISHLIST } from "../type";
+import { ERROR, LOGIN, LOGOUT, UPDATE, REGISTER,REGISTER_ERROR,  } from "../type";
 
 // import reduxToolkit from "../../core/reduxToolkit";
 // import Auth from "../../service/auth";

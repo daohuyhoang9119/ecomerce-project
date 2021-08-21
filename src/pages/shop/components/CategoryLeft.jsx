@@ -1,16 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {GET_NAME_CATEGORY} from "../../../redux/type";
-import {categoryAction} from "../../../redux/action/productAction"
 import { convertQueryToObj, convertObjToQuery } from "../../../utils";
 
-import Skeleton from '@material-ui/lab/Skeleton';
 
 
 export default function CategoryLeft({categories}){
     const dispatch = useDispatch();
-    let { category} = useSelector((store) => store.productReducer);
 
  
     let obj = convertQueryToObj();
