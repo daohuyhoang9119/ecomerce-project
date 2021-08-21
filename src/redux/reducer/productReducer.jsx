@@ -73,8 +73,13 @@ export default function productReducer(state = initState, action){
                 ...state,
                 listSearch: action.payload,
             }
-
         }
+        case 'fetchDataHome':
+            return{
+                ...state,
+                loading: false,
+                dataSearch: action.payload,
+            }
         default: {
             return state;
         }

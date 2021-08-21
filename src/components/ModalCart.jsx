@@ -8,7 +8,7 @@ import {FormatCurrency} from "../utils/FormatCurrency";
 
 export function ModalCart() {
   let { t } = useTranslate();
-
+  
   //cart
   const {listCart, num, amount} = useSelector(state => state.cartReducer); 
   
