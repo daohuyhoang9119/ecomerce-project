@@ -1,4 +1,4 @@
-import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING, ADD_WISHLIST, REMOVE_WISHLIST, PRODUCT_DETAIL } from "../type";
+import { CATEGORY, PRODUCT, GET_NAME_CATEGORY, GET_VIEW_PRODUCT, LOADING, ADD_WISHLIST, REMOVE_WISHLIST, PRODUCT_DETAIL, SEARCH } from "../type";
 
 let initState = {
     categories: JSON.parse(localStorage.getItem("categories")) || [],
@@ -9,6 +9,7 @@ let initState = {
     product_detail:{},
     dataSearch: {},
     wishList: JSON.parse(localStorage.getItem("WishList")) || [],
+    listSearch: [],
 };
 export default function productReducer(state = initState, action){
     switch(action.type){
@@ -66,6 +67,13 @@ export default function productReducer(state = initState, action){
                 ...state,
                 wishList
             };
+        }
+        case SEARCH:{
+            return {
+                ...state,
+                listSearch: action.payload,
+            }
+
         }
         default: {
             return state;

@@ -17,7 +17,8 @@ const ProductApi = {
         return api.get(`product?slug=${slug}`);
     },
     searchProduct(slug){
-        return fetch(`http://cfd-reactjs.herokuapp.com/product?search=${slug}`,{}).then(res => res.json);
+        // return fetch(`http://cfd-reactjs.herokuapp.com/product?search=${slug}`,{}).then(res => res.json);
+        return api.get(`product?search=${slug}`);
     }
     
 }

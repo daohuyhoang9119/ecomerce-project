@@ -1,5 +1,5 @@
 import ProductApi from "../../service/productApi";
-import { CATEGORY, GET_VIEW_PRODUCT, PRODUCT, LOADING, FETCH_CATEGORY } from "../type";
+import { CATEGORY, GET_VIEW_PRODUCT, PRODUCT, LOADING, FETCH_CATEGORY, SEARCH } from "../type";
 import { PRODUCT_DETAIL } from './../type';
 
 export function categoryAction(){
@@ -59,5 +59,17 @@ export function productDetail(data){
 export function loadingAction(){
     return{
         type:LOADING,
+    }
+}
+
+export function fetchSearch(keyword){
+    return async (dispatch)=>{
+        let res = await ProductApi.searchProduct(keyword);
+        if(res){
+            dispatch({
+                type: SEARCH,
+                payload: res.data,
+            })
+        }
     }
 }
